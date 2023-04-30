@@ -7,6 +7,18 @@ export const Container = styled.div<{ openMenu:boolean }>`
     grid-template-columns: ${(({ openMenu }) => openMenu? 'repeat(4, 1fr)' : 'repeat(5, 1fr)')};
     column-gap: 20px;
     row-gap: 50px;
+
+    @media(max-width: 1500px) {
+        grid-template-columns: repeat(3, 1fr)
+    }
+
+    @media(max-width: 1170px) {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    @media(max-width: 768px) {
+        grid-template-columns: 1fr
+    }
 `;
 
 export const Divider = styled.div `

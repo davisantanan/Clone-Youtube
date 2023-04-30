@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.header `
-    width: 100%;
+    min-width: 100%;
     height: 55px;
     background-color: #fff;
     padding: 0 16px;
@@ -11,14 +11,47 @@ export const Container = styled.header `
     justify-content: space-between;
     position: sticky;
     top: 0;
+    z-index: 1;
 `;
 
-export const LogoContainer = styled.div `
+export const LogoContainer = styled.div<{ openSearchBar:boolean }> `
     display: flex;
     align-items: center;
+
+    img {
+        cursor: pointer;
+        width: 95px;
+        
+        @media (max-width: 412px) {
+            width: 70px;
+        }
+    }
+
+    @media(max-width: 768px) {
+        display: ${({openSearchBar}) => openSearchBar? 'none' : 'flex'}
+    }
 `;
 
-export const ButtonContainer = styled.div<{margin?: string}> `
+export const ButtonContainerLogo = styled.div<{ margin?: string, openSearchBar?:boolean }> `
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: ${({ margin }) => margin? margin : 0};
+    display: ${({ openSearchBar }) => openSearchBar? 'none' : 'flex'};
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+    :hover{
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+        width: 20px;
+    }
+`;
+
+export const ButtonContainer = styled.div<{ margin?: string, openSearchBar?:boolean }> `
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -27,8 +60,33 @@ export const ButtonContainer = styled.div<{margin?: string}> `
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    
     :hover{
         background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    @media(max-width: 768px) {
+        display: ${({ openSearchBar }) => openSearchBar? 'none' : 'flex'};
+        display: none;
+    }
+`;
+
+export const ButtonContainerResponsive = styled.div<{ margin?: string }> `
+    display: none;
+    
+    @media(max-width: 768px) {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: ${({ margin }) => margin? margin : 0};
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        
+        :hover{
+            background-color: rgba(0, 0, 0, 0.1);
+        }
     }
 `;
 
@@ -38,9 +96,20 @@ export const ButtonIcon = styled.img `
 
 export const SearchContainer = styled.div `
     display: flex;
+    right: 35%;
+    position: absolute;
+
+    @media(max-width: 1350px) {
+        width: 35%;
+    };
+
+    @media(max-width: 568px) {
+        width: 50%;
+    }
+
 `;
 
-export const SearchInputContainer = styled.div `
+export const SearchInputContainer = styled.div<{ openSearchBar:boolean }> `
     width: 450px;
     height: 35px;
     border: 1px solid #d3d3d3;
@@ -48,6 +117,12 @@ export const SearchInputContainer = styled.div `
     display: flex;
     align-items: center;
     padding: 0 16px;
+
+    @media(max-width: 768px) {
+        display: ${({ openSearchBar }) => openSearchBar? 'flex' : 'none'};
+        border-radius: 40px;
+        width: 100%;
+    }
 `;
 
 export const SearchInput = styled.input `
@@ -70,9 +145,79 @@ export const SearchButton = styled.div `
     :hover{
         background-color: rgba(0, 0, 0, 0.1);
     }
+
+    @media(max-width: 768px) {
+        display: none;
+    };
 `;
 
-export const HeaderButtons = styled.div `
-    width: 200px;
+export const HeaderButtons = styled.div<{ login:boolean, openSearchBar:boolean }>`
+    width: ${({ login }) => login? '200px' : '270px'};
     display: flex;
+    
+    @media(max-width: 768px) {
+        width: ${({ login }) => login? '20%' : '30%'};
+        position: absolute;
+        right: 0;
+        margin-right: 10px;
+    }
+
+    @media (max-width: 568px) {
+        width: 30%
+    }
 `;
+
+export const ImgLogin = styled.img `
+    height: 20px;
+    width: 20px;
+`;
+
+export const TextImgLogin = styled.span `
+    font-size: 14px;
+
+    @media(max-width: 768px) {
+        font-size: 12px;
+    }
+
+    @media(max-width: 560px) {
+        display: none;
+    }
+`;
+
+export const LoginButton = styled.div `
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: .1px solid #e4e4e4;
+    border-radius: 20px;
+    gap: 10px;
+    height: 35px;
+    width: 50%;
+    outline: none;
+    cursor: pointer;
+    margin: 2px 0 0 10px;
+     
+    :hover {
+        background-color: #4285f430;
+    }
+`;
+
+export const ProfileImage = styled.div `
+    background-color: #065fd4db;
+    width: 35px;
+    height: 35px;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-left: 12px;
+    margin-top: 2px;
+    cursor: pointer;
+
+    span {
+        color: #000;
+        font-size: 17px;
+    }
+`;
+
+

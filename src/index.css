@@ -12,6 +12,17 @@ code {
     monospace;
 }
 
+.hero-container {
+  width: 100%;
+  display: flex;
+}
+
+.content-container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 50px 70px;
+}
+
 * {
   scrollbar-width: 10px;
   scrollbar-color: #8c8c8c;
@@ -24,4 +35,14 @@ code {
 *::-webkit-scrollbar-thumb {
   background-color: #8c8c8c;
   border-radius: 20px;
+}
+
+@media(max-width: 445px) {
+  body{
+    -ms-overflow-style: none;
+  }
+  
+  *::-webkit-scrollbar {
+    display: none;
+  }
 }

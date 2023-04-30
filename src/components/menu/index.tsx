@@ -1,7 +1,7 @@
 import { 
     ButtonIcon,
     Container, 
-    Div, 
+    OpenMenuContainer, 
     Divider, 
     LoginContainer, 
     LoginButton, 
@@ -10,9 +10,14 @@ import {
     TextLogin,
     ImgLogin,
     TextImgLogin,
-    TitleSession
+    TitleSession,
+    DividerLogin,
+    MenuOverLay,
+    MenuHeader,
+    ButtonContainer,
+    ButtonIconHeader
 } from "./styles";
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { MenuContext } from "../../contexts/menuContext";
 import HomeIcon from '../../assets/amenu/botao-home.png';
 import ShortsIcon from '../../assets/amenu/short-icon.png';
@@ -37,18 +42,21 @@ import SettingsIcon from '../../assets/amenu/settings.png';
 import FlagIcon from '../../assets/amenu/bandeiras.png';
 import HelpIcon from '../../assets/amenu/ajudando.png';
 import FeedbackIcon from '../../assets/amenu/feedback.png';
-import { useNavigate } from "react-router-dom";
+import HamburguerIcon from '../../assets/aheader/hamburger.png';
+import Logo from '../../assets/aheader/YouTube-Logo.png';
+import { useLocation, useNavigate } from "react-router-dom";
+import { UserContext } from '../../contexts/userContext';
 
 
 const home = [
-    { name: 'Inicio', button: <ButtonIcon alt="" src={HomeIcon}/>, link: '/' },
-    { name: 'Shorts', button : <ButtonIcon alt="" src={ShortsIcon} />, link: '/' },
-    { name: 'Inscrições', button : <ButtonIcon alt="" src={SubscribeIcon} />, link: '/' }
+    { name: 'Inicio', button: <ButtonIcon alt="" src={HomeIcon} />, link: '/' },
+    { name: 'Shorts', button : <ButtonIcon alt="" src={ShortsIcon} />, link: '' },
+    { name: 'Inscrições', button : <ButtonIcon alt="" src={SubscribeIcon} />, link: ''}
 ];
 
 const libray = [
-    {name: 'Biblioteca', button: <ButtonIcon alt="" src={LibrayIcon} />, link: '/library'},
-    {name: 'Histórico', button: <ButtonIcon alt="" src={HistoricIcon} />, link: '/history'}
+    {name: 'Biblioteca', button: <ButtonIcon alt="" src={LibrayIcon} />},
+    {name: 'Histórico', button: <ButtonIcon alt="" src={HistoricIcon} />, }
 ]
 
 const explore = [
@@ -77,12 +85,46 @@ const settings = [
 ]
 
 function Menu(){
-    const { openMenu } = useContext(MenuContext);
-    const navigate = useNavigate()
+    const { openMenu, setOpenMenu } = useContext(MenuContext);
+    const { login } = useContext(UserContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        if(window.innerWidth < 1300) {
+            setOpenMenu(false);
+        }
+    },[location, setOpenMenu])
+
+    useEffect(() => {
+        function handleResize(){
+            setOpenMenu(window.innerWidth > 1300);
+        }
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return() => window.removeEventListener('resize', handleResize);
+    }, [setOpenMenu]);
+
+    useEffect(() => {
+        if(openMenu && window.innerWidth < 1300) {
+            document.documentElement.style.overflow = 'hidden';
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.documentElement.style.overflow = '';
+            document.body.style.overflow = '';
+        }
+    },[openMenu]);
  
     return(
         <>
-        <Container openMenu={openMenu} >
+        <MenuOverLay openMenu={openMenu} /> 
+        <Container openMenu={openMenu}>
+            <MenuHeader openMenu={openMenu}>
+                <ButtonContainer onClick={() => setOpenMenu(false)}>
+                    <ButtonIconHeader alt="" src={HamburguerIcon} />
+                </ButtonContainer>
+                <img alt="" src={Logo} onClick={() => navigate('/')} />
+            </MenuHeader>
             {home.map((item) => (
                 <MenuItem openMenu={openMenu} onClick={() => navigate(item.link)} >
                     {item.button}
@@ -91,24 +133,23 @@ function Menu(){
             ))}
             <Divider openMenu={openMenu}/>
             {libray.map((item) => (
-                <MenuItem openMenu={openMenu} onClick={() => navigate(item.link)}>
+                <MenuItem openMenu={openMenu}>
                     {item.button}
                     <span>{item.name}</span>
                 </MenuItem>
             ))}
             <Divider openMenu={openMenu}/>
-            <Div openMenu={openMenu}>
-                
-                <LoginContainer>
+            <OpenMenuContainer openMenu={openMenu}>
+                <LoginContainer login={login}>
                     <TextLogin>
                         Faça login para curtir vídeos, comentar e se inscrever.
                     </TextLogin>
-                    <LoginButton>
+                    <LoginButton onClick={() => navigate('/login')}>
                         <ImgLogin alt="" src={AvatarIcon}/>
                         <TextImgLogin>Fazer Login</TextImgLogin>
                     </LoginButton>
                 </LoginContainer>
-                <Divider openMenu={openMenu}/>
+                <DividerLogin login={login}/>
                 <TitleSession>Explorar</TitleSession>
                 {explore.map((item) => (
                     <MenuItem openMenu={openMenu}>
@@ -136,8 +177,8 @@ function Menu(){
                         <span>{item.name}</span>
                     </MenuItem>
                 ))}  
-                <Divider openMenu={openMenu}/>
                 <Footer>
+                    <Divider openMenu={openMenu}/>
                     <p>
                         Sobre   Imprensa <br />
                         Direitos autorais <br />
@@ -153,7 +194,7 @@ function Menu(){
                     </p>
                     <span>© 2023 Google LLC</span>
                 </Footer>
-            </Div>
+            </OpenMenuContainer>
         </Container>
         </>
     )

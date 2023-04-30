@@ -2,12 +2,12 @@ import { createContext, ReactNode,  useState } from 'react';
 
 interface propsContextMenu {
     children: ReactNode
-}
+};
 
 interface typeContextMenu {
     openMenu: boolean,
     setOpenMenu: (openMenu: boolean) => void
-}
+};
 
 export const MenuContext = createContext({} as typeContextMenu);
 

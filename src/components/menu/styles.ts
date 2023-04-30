@@ -4,7 +4,7 @@ export const Container = styled.div<{ openMenu:boolean }> `
     width: ${({ openMenu }) => openMenu? '250px': '100px'};
     height: calc(100vh - 55px);
     box-sizing: border-box;
-    padding: 10px 10px 10px 10px;
+    padding: 10px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -12,10 +12,92 @@ export const Container = styled.div<{ openMenu:boolean }> `
     overflow-x: hidden;
     position: sticky;
     top: 55px;
+    transition: 0.2s;
+
+    @media(max-width: 1300px) {
+        position: ${({ openMenu }) => openMenu ? 'fixed' : 'sticky' };
+        background-color: #fff;
+        z-index: 2;
+        height: 100vh;
+        top: 0;
+    }
+    
+    @media(max-width: 768px) {
+        display: ${({ openMenu }) => openMenu ? 'flex' : 'none'};
+    }
+
+    @media(max-width: 445px) {
+        position: fixed;
+        width: 100vw;
+    }
+`;
+
+export const MenuHeader = styled.div<{ openMenu:boolean }>`
+    display: none;
+    width: 100%;
+    height: 55px;
+    padding: 2px 15px;
+    box-sizing: border-box;
+
+    @media(max-width: 1300px) {
+        display: ${({ openMenu }) => openMenu? 'flex' : 'none' };
+        align-items: center
+    }
+
+    img {
+        width: 95px;
+        cursor: pointer;
+
+        @media (max-width: 412px) {
+            width: 70px;
+        }
+    }
+`;
+
+export const ButtonContainer = styled.div<{ margin?: string }> `
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: ${({ margin }) => margin? margin : 0};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px;
+    
+    :hover{
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+        width: 20px
+    }
+`;
+
+export const ButtonIconHeader = styled.img `
+    width: 20px;
+`;
+
+export const MenuOverLay = styled.div<{ openMenu:boolean }>`
+    display: none;
+    position: fixed;  
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    @media(max-width: 1300px) {
+    display: ${({ openMenu }) => openMenu? 'block': 'none'};
+    }
+
+    @media(max-width: 445px) {
+        display: none;
+    }
 `;
 
 export const MenuItem = styled.div<{ openMenu:boolean }> `
-    width: 100%;
+    width: 98%;
     min-height: ${({ openMenu }) => openMenu? '45px': '70px'};
     border-radius: 10px;
     cursor: pointer;
@@ -50,42 +132,60 @@ export const Divider = styled.div<{ openMenu:boolean }> `
     width: 100%;
     margin: 5px 0 10px 0;
     border-top: .1px solid #cfcfcf;
-    
 `;
 
-export const Div = styled.div<{ openMenu:boolean }> `
+export const OpenMenuContainer = styled.div<{ openMenu:boolean }> `
     display: ${({ openMenu }) => openMenu? 'flex': 'none'};
     flex-direction: column;
+    width: 100%;
 `;
 
-export const LoginContainer = styled.div `
-    display: flex;
+export const LoginContainer = styled.div<{ login:boolean }> `
+    display: ${({ login }) => login ? 'none' : 'flex'};
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 10px;
-`
+
+    @media(max-width: 445px) {
+        width: 60%
+    }
+`;
+
+export const DividerLogin = styled.div<{ login:boolean }> `
+    display: ${({ login }) => login? 'none': 'flex'};
+    width: 100%;
+    margin: 5px 0 10px 0;
+    border-top: .1px solid #cfcfcf;
+`;
+
 export const TextLogin = styled.span `
     width: 90%;
     padding: 2px 15px;
+
+    @media(max-width: 445px) {
+        display: none;
+    }
 `;
 
 export const ImgLogin = styled.img `
     height: 20px;
     width: 20px;
-`
+`;
+
 export const TextImgLogin = styled.span `
     font-size: 14px;
-`
+`;
+
 export const LoginButton = styled.div `
     display: flex;
-    flex-direction: row;
     align-items: center;
     border: .1px solid #e4e4e4;
-    border-radius: 15px;
+    border-radius: 20px;
     padding: 2px 15px;
     gap: 10px;
     box-sizing: border-box;
-    height: 32px;
+    min-height: 32px;
     width: 70%;
     margin: 10px 0 0 20px;
     outline: none;
@@ -94,11 +194,16 @@ export const LoginButton = styled.div `
     :hover {
         background-color: #4285f430;
     }
-`
+
+    @media(max-width: 445px) {
+        width: 60%;
+        height: 40px;
+    }
+`;
 
 export const TitleSession = styled.span `
     padding: 2px 15px;
-`
+`;
 
 export const Footer = styled.footer `
     display: flex;
@@ -120,4 +225,8 @@ export const Footer = styled.footer `
         color: hsla(0, 0%, 7%, 0.65);
         margin-top: 5px;
     }
-`
+
+    @media(max-width: 445px) {
+        display: none;
+    }
+`;

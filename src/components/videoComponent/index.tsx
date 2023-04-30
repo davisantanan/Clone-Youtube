@@ -6,22 +6,29 @@ import {
     TextContainer, 
     Title, 
     TitleContainer 
-    } from "./styles";
+} from "./styles";
 
 
+interface props {
+    image: string,
+    title: string,
+    channel: string,
+    views: string,
+    time: string
+};
 
-function VideoComponent(){
+function VideoComponent({video}:{video:props}){
     return(
         <Container>
-            <ImageBanner src='https://i.ytimg.com/vi/Ko7qsNC-OTY/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC6ZJN6p4kcXM1o9VADQzFe1ytm3A' />
+            <ImageBanner src={video.image} />
             <TitleContainer>
                 <ChannelImage>
-                    W
+                    <span>{video.channel.charAt(0).toUpperCase()}</span>
                 </ChannelImage>
                 <TextContainer>
-                    <Title>CREED III | Official Trailer</Title>
-                    <TextCard>Warner Bros</TextCard>
-                    <TextCard>1,5 mi de visualizações - há 4 meses</TextCard>
+                    <Title>{video.title}</Title>
+                    <TextCard>{video.channel}</TextCard>
+                    <TextCard>{video.views} de visualizações - há {video.time}</TextCard>
                 </TextContainer>
             </TitleContainer>
         </Container>

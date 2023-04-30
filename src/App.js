@@ -2,31 +2,35 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/header";
 import Menu from "./components/menu";
 import Home from "./pages/home";
-import Library from "./pages/library/library";
-import History from "./pages/history/history";
-
+import { MenuStore } from "./contexts/menuContext";
+import Login from "./pages/login";
+import { DropMenuStore } from "./contexts/dropDownMenuContext";
+import CreateAccount from "./pages/createAccount";
 
 
 function App() {
 
   return (
-    
-    <BrowserRouter>
-    <div className="App">
-      <Header />
-      <div style={{ width: '100%', display: 'flex' }}>
-        <Menu  />
-        <div style={{ width: '100%', padding: '50px 70px', boxSizing: "border-box", display: 'flex', justifyContent: 'center', flexDirection: "column" }}>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/library' element={<Library />} />
-            <Route path='/history' element={<History />} />
-          </Routes>
+    <MenuStore>
+      <DropMenuStore>
+        <BrowserRouter>
+        <div className="App">
+          <Header />
+          <div className="hero-container">
+            <Menu />
+            <div className="content-container">
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/sign-up' element={<CreateAccount />} />
+              </Routes>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    </BrowserRouter>
-  );
+        </BrowserRouter>
+      </DropMenuStore>
+    </MenuStore>
+  )
 }
 
 export default App;
