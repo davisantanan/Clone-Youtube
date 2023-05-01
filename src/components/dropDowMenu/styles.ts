@@ -11,7 +11,7 @@ export const Container = styled.div<{ openDropMenu:boolean }> `
     border-radius: 8px;
     box-shadow: -3px 1px 18px -6px gray;
 
-    @media(max-width: 445px) {
+    @media(max-width: 500px) {
        position: fixed;
        top: 0;
        right: 0;
@@ -34,7 +34,7 @@ export const ButtonCloseDropdown = styled.img `
     width: 20px;
     margin: 8px 0 0 8px;
 
-    @media(max-width: 445px) {
+    @media(max-width: 500px) {
         display: flex
     }
 `;

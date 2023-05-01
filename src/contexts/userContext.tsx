@@ -38,7 +38,7 @@ export const UserStorage = ({ children }: propsContextUser) => {
             alert('Usuário criado com sucesso');
         } catch (error) {
             console.log('Não foi possível criar um usuário', error);
-            console.log(data.status)
+            console.log(data.status);
         };   
     };
 

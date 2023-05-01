@@ -6,7 +6,7 @@ export const Container = styled.div `
     position: sticky;
     top: 55px;
 
-    @media(max-width: 445px) {
+    @media(max-width: 500px) {
         position:  relative;
         top: .1%;
     }
@@ -27,7 +27,7 @@ export const Carousel = styled.div `
     margin-left: -45px;
     height: 50px;
 
-    @media(max-width: 445px) {
+    @media(max-width: 500px) {
         -webkit-overflow-scrolling: touch;
         overflow-x: auto;
     }
@@ -40,7 +40,7 @@ export const Buttons = styled.div `
     cursor: pointer;
     width: 100%;
 
-    @media(max-width: 445px) {
+    @media(max-width: 500px) {
         display: none
     }
 `;
