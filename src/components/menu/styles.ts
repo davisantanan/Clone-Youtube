@@ -15,10 +15,11 @@ export const Container = styled.div<{ openMenu:boolean }> `
     transition: 0.2s;
 
     @media(max-width: 1300px) {
-        position: ${({ openMenu }) => openMenu ? 'fixed' : 'stick' };
+        position: ${({ openMenu }) => openMenu ? 'fixed' : 'sticky' };
         background-color: #fff;
         z-index: 2;
-        height: 100vh;
+        height: 100%;
+        left: 0;
         top: ${({ openMenu }) => openMenu? '0' : '55px'};
     }
     
@@ -84,6 +85,7 @@ export const MenuOverLay = styled.div<{ openMenu:boolean }>`
     width: 100vw;
     height: 100vh;
     top: 0;
+    
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.6);
 
