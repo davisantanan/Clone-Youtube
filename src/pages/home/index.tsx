@@ -37,18 +37,19 @@ function Home(){
 
   useEffect(() => {
     load();
-  })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-  const API_KEY = 'AIzaSyDM4FeOsZjpJ2_-QwW6FbkzXpznXMjXuus'
+  const API_KEY = 'AIzaSyCMpWvUwocM23yBOpkz6VpWuY6y6E99sb8'
 
   const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&chart=mostPopular&hl=pt_BR&maxResults=24&regionCode=br&key=${API_KEY}`
     
   async function load() {
     try {
-        const response = await axios.get(url);
-        setVideos(response.data.items);
+      const response = await axios.get(url);
+      setVideos(response.data.items);
     } catch(error){
-        console.log(error);
+      console.log(error);
     }
   }
     

@@ -41,7 +41,8 @@ function Header(){
     
     useEffect(() => {
         setOpenDropMenu(false);
-   },[login, setOpenDropMenu]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+   },[login]);
 
     const handleButtonClick = (e:MouseEvent) => {
         e.stopPropagation();

@@ -29,9 +29,6 @@ import CancelButton from '../../assets/adropdown/cancel.png';
 import { DropMenuContext } from "../../contexts/dropDownMenuContext";
 
 
-
-
-
 function DropDowMenu(){
     const { user, logOut } = useContext(UserContext);
     const { openDropMenu, setOpenDropMenu } = useContext(DropMenuContext);    
