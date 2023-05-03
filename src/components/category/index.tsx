@@ -43,9 +43,9 @@ function Category(){
                     Tudo
                 </InitalCaregoryItem>
             </InitialCategoryBox>
-            {navBar.map((valor) => (
+            {navBar.map((valor, index) => (
                 <CategoryBox>
-                    <CategoryItem>
+                    <CategoryItem key={index}>
                         {valor}
                     </CategoryItem>
                 </CategoryBox>

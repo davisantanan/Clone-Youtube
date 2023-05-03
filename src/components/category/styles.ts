@@ -5,10 +5,15 @@ export const Container = styled.div `
     max-width: 1500px;
     position: sticky;
     top: 55px;
+    height: 50px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    
 
     @media(max-width: 500px) {
-        position:  relative;
-        top: .1%;
+        top: 55px;
+        padding-top: 10px;      
     }
 `;
 
@@ -17,15 +22,13 @@ export const Carousel = styled.div `
     overflow-x: hidden;
     scroll-behavior: smooth;
     box-sizing: border-box;
-    margin-bottom: 20px;
-    margin-top: -50px;
     background-color: #fff;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
     margin-left: -45px;
-    height: 50px;
+    
 
     @media(max-width: 500px) {
         -webkit-overflow-scrolling: touch;

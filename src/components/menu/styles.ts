@@ -10,16 +10,15 @@ export const Container = styled.div<{ openMenu:boolean }> `
     flex-direction: column;
     overflow-y: scroll;
     overflow-x: hidden;
-    position: sticky;
+    position: fixed;    
     top: 55px;
     transition: 0.2s;
+    
 
     @media(max-width: 1300px) {
-        position: ${({ openMenu }) => openMenu ? 'fixed' : 'sticky' };
         background-color: #fff;
         z-index: 2;
         height: 100%;
-        left: 0;
         top: ${({ openMenu }) => openMenu? '0' : '55px'};
     }
     

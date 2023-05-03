@@ -12,23 +12,23 @@ import {
 interface props {
     image: string,
     title: string,
+    channelImage: string,
     channel: string,
-    views: string,
-    time: string
+    details: string
 };
 
-function VideoComponent({video}:{video:props}){
+function VideoComponent(video: props){
     return(
         <Container>
-            <ImageBanner src={video.image} />
+            <ImageBanner alt="" src={video.image} />
             <TitleContainer>
                 <ChannelImage>
-                    <span>{video.channel.charAt(0).toUpperCase()}</span>
+                    <span>{video.channelImage}</span>
                 </ChannelImage>
                 <TextContainer>
                     <Title>{video.title}</Title>
                     <TextCard>{video.channel}</TextCard>
-                    <TextCard>{video.views} de visualizações - há {video.time}</TextCard>
+                    <TextCard>{video.details}</TextCard>
                 </TextContainer>
             </TitleContainer>
         </Container>
