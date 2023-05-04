@@ -3,6 +3,7 @@ import Home from "./pages/home";
 import { MenuStore } from "./contexts/menuContext";
 import Login from "./pages/login";
 import { DropMenuStore } from "./contexts/dropDownMenuContext";
+import { UserStorage } from './contexts/userContext';
 import CreateAccount from "./pages/createAccount";
 
 
@@ -10,19 +11,21 @@ function App() {
 
   return (
     <BrowserRouter>
-      <MenuStore>
-        <DropMenuStore>
-          <div className="App">
-            <div className="hero-container">
-                <Routes>
-                  <Route path='/' element={<Home />} />
-                  <Route path='/login' element={<Login />} />
-                  <Route path='/sign-up' element={<CreateAccount />} />
-                </Routes>
+      <UserStorage>
+        <MenuStore>
+          <DropMenuStore>
+            <div className="App">
+              <div className="hero-container">
+                  <Routes>
+                    <Route path='/' element={<Home />} />
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/sign-up' element={<CreateAccount />} />
+                  </Routes>
+              </div>
             </div>
-          </div>
-        </DropMenuStore>
-      </MenuStore>
+          </DropMenuStore>
+        </MenuStore>
+      </UserStorage>
     </BrowserRouter>
   )
 }

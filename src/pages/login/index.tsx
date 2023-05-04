@@ -12,9 +12,6 @@ function Login(){
     const [password, setPassword] = useState('');
     const navigate = useNavigate()
     
-
-    
-    
     return(
         <>
             <Container>

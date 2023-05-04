@@ -1,5 +1,6 @@
 import { createContext, ReactNode,  useState, useEffect } from 'react';
 import api from '../api';
+import { useNavigate } from 'react-router-dom';
 
 interface propsContextUser {
     children: ReactNode
@@ -16,13 +17,13 @@ interface typeContextUser {
     user: user,
     handleLogin: (email: string, password: string) => Promise<void>,
     logOut: () => void,
-    createUser: (name:string, email:string, password:string) =>Promise<void> 
+    createUser: (name:string, email:string, password:string) => void
 };
 
 export const UserContext = createContext({} as typeContextUser);
 
 export const UserStorage = ({ children }: propsContextUser) => {
-    
+    const navigate = useNavigate()
     const [login, setLogin] = useState(false);
     const [user, setUser] = useState({
         name: '',
@@ -32,15 +33,15 @@ export const UserStorage = ({ children }: propsContextUser) => {
     const [token, setToken]= useState(localStorage.getItem('token') as string);
 
     const createUser = async (name:string, email:string, password:string) => {
-            const {data} = await api.post('/user/sign-up', { name, email, password });
+        const {data} = await api.post('/user/sign-up', { name, email, password });
         try{
             console.log(data.status);
             alert('Usuário criado com sucesso');
+            navigate('/login');
         } catch (error) {
             console.log('Não foi possível criar um usuário', error);
-            console.log(data.status);
-        };   
-    };
+    };   
+};
 
     const getUser = async (token:string) => {
         try{
@@ -74,6 +75,7 @@ export const UserStorage = ({ children }: propsContextUser) => {
           setToken(data.token);
           getUser(data.token);
           alert('Usuário Logado com sucesso');
+          navigate('/');
         } catch (error) {
           console.log('Não foi possível fazer o Login', error);
         };
