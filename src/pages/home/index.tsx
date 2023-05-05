@@ -4,6 +4,7 @@ import VideoComponent from "../../components/videoComponent";
 import { Container, Divider, HomeContainer, MainContainer } from "./styles";
 import { useContext, useEffect, useState } from 'react';
 import { MenuContext } from "../../contexts/menuContext";
+import { CategoryContext } from '../../contexts/categoryContext';
 import Category from "../../components/category";
 import Shorts from "../../components/shorts";
 import axios from "axios";
@@ -32,17 +33,18 @@ function Home(){
     }
   }
   
+  const { categoryId } = useContext(CategoryContext)
   const { openMenu } = useContext(MenuContext);
   const [videos, setVideos] = useState<Videos[]>([]);
 
   useEffect(() => {
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [categoryId])
 
   const API_KEY = 'AIzaSyCMpWvUwocM23yBOpkz6VpWuY6y6E99sb8'
 
-  const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&chart=mostPopular&hl=pt_BR&maxResults=24&regionCode=br&key=${API_KEY}`
+  const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&chart=mostPopular&hl=pt_BR&maxResults=24&regionCode=br&videoCategoryId=${categoryId}&key=${API_KEY}`
     
   async function load() {
     try {

@@ -48,8 +48,8 @@ export const Buttons = styled.div `
     }
 `;
 
-export const Right = styled.button `
-    display: flex;
+export const Right = styled.button<{ rightArrow:boolean }> `
+    display: ${({ rightArrow }) => rightArrow ? 'flex' : 'none' };
     justify-content: center;
     align-items: center;
     width: 32px;
@@ -72,8 +72,8 @@ export const Right = styled.button `
     }
 `;
 
-export const Left = styled.button `
-    display: flex;
+export const Left = styled.button<{ leftArrow:boolean }> `
+    display: ${({ leftArrow }) => leftArrow ? 'flex' : 'none' };
     justify-content: center;
     align-items: center;
     width: 32px;
@@ -97,8 +97,8 @@ export const Left = styled.button `
     }
 `;
 
-export const CategoryBox = styled.div `
-    background-color: rgba(0, 0, 0, .05);
+export const CategoryBox = styled.div<{ activeIndex:boolean }>`
+    background-color: ${({ activeIndex }) => activeIndex  ? 'black' : 'rgba(0, 0, 0, .05)'};
     height: 33px;
     box-sizing: border-box;
     padding: 13px;
@@ -108,32 +108,17 @@ export const CategoryBox = styled.div `
     border-radius: 8px;
     cursor: pointer;
     transition: 0.3s;
+    
     :hover{
-        background-color: rgba(0, 0, 0, 0.13);
+        background-color: ${({ activeIndex }) => activeIndex ? 'none' : 'rgba(0, 0, 0, 0.13)'};
     }
 `;
 
-export const CategoryItem = styled.span `
+export const CategoryItem = styled.span<{ activeIndex:boolean }>`
+    color: ${({ activeIndex }) => activeIndex ? '#fff' : 'black'};
     font-size: 15px;
     max-width: 200px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-`;
-
-export const InitialCategoryBox = styled.div `
-    background-color: black;
-    height: 33px;
-    box-sizing: border-box;
-    padding: 13px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    cursor: pointer;
-`;
-
-export const InitalCaregoryItem = styled.span `
-    font-size: 15px;
-    color: #fff
 `;
