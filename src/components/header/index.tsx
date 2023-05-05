@@ -52,9 +52,9 @@ function Header(){
         <Container>
             <LogoContainer openSearchBar={openSearchBar}>
                 <ButtonContainerLogo margin= '0 10px 0 0' onClick={() => setOpenMenu(!openMenu)}>
-                    <ButtonIcon alt="" src={HamburguerIcon} />
+                    <ButtonIcon alt="menu" src={HamburguerIcon} />
                 </ButtonContainerLogo>
-                <img alt="" src={Logo} onClick={() => navigate('/')} />
+                <img alt="logo" src={Logo} onClick={() => navigate('/')} />
             </LogoContainer>
             
             <SearchContainer>
@@ -62,22 +62,22 @@ function Header(){
                     <SearchInput placeholder="Pesquisar" />
                 </SearchInputContainer>
                 <SearchButton>
-                    <ButtonIcon alt="" src={SearchIcon} />
+                    <ButtonIcon alt="search" src={SearchIcon} />
                 </SearchButton>
                 <ButtonContainer openSearchBar={openSearchBar} margin= '0 0 0 10px'>
-                    <ButtonIcon alt="" src={MicIcon} />
+                    <ButtonIcon alt="mic" src={MicIcon} />
                 </ButtonContainer>
             </SearchContainer>
 
             <HeaderButtons openSearchBar={openSearchBar} login={login}>
                 <ButtonContainer openSearchBar={openSearchBar} margin= '0 0 0 10px'>
-                    <ButtonIcon alt="" src={VideoIcon} />
+                    <ButtonIcon alt="video" src={VideoIcon} />
                 </ButtonContainer>
                 <ButtonContainer openSearchBar={openSearchBar} margin= '0 0 0 10px'>
-                    <ButtonIcon alt="" src={NotificationIcon} />
+                    <ButtonIcon alt="notification" src={NotificationIcon} />
                 </ButtonContainer>
                 <ButtonContainerResponsive margin= '0 0 0 10px' onClick={() => setOpenSearchBar(!openSearchBar)}>
-                    <ButtonIcon alt="" src={SearchIcon} />
+                    <ButtonIcon alt="search" src={SearchIcon} />
                 </ButtonContainerResponsive>
                 {login ?
                 <>
@@ -92,7 +92,7 @@ function Header(){
                 </> 
                 :
                 <LoginButton onClick={() => navigate('/login')}>
-                    <ImgLogin alt="" src={AvatarIcon}/>
+                    <ImgLogin alt="avatar" src={AvatarIcon}/>
                     <TextImgLogin>Fazer Login</TextImgLogin>
                 </LoginButton>
                 }

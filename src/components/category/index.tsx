@@ -70,26 +70,24 @@ function Category(){
             <Carousel ref={carousel}>
                 <Buttons>
                     <Left leftArrow={leftArrow} onClick={() => handleLeftClick()} >
-                        <img alt='' src={ButtonLeft}/>
+                        <img alt='seta-esquerda' src={ButtonLeft}/>
                     </Left>
                     <Right rightArrow={rightArrow} onClick={() => handleRightClick()}>
-                        <img alt='' src={ButtonRight}/>
+                        <img alt='seta-direita' src={ButtonRight}/>
                     </Right>
                 </Buttons>
             {navBar.map((item, index) => (
-                <>
                 <CategoryBox 
                 key={index} 
                 activeIndex={activeIndex === index} 
                 onClick={() => {
-                    setActiveIndex(index);
-                    setCategoryId(item.id);
+                    setActiveIndex(index)
+                    setCategoryId(item.id)
                 }}>
                     <CategoryItem activeIndex={activeIndex === index}>
                         {item.name}
                     </CategoryItem>
                 </CategoryBox>
-                </>
             ))}
             </Carousel>
        </Container> 

@@ -20,7 +20,7 @@ interface props {
 function VideoComponent(video: props){
     return(
         <Container>
-            <ImageBanner alt="" src={video.image} />
+            <ImageBanner alt="video-image" src={video.image} />
             <TitleContainer>
                 <ChannelImage>
                     <span>{video.channelImage}</span>

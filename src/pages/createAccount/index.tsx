@@ -23,7 +23,7 @@ function CreateAccount(){
         <>
             <Container>
                 <ContentContainer>
-                    <Icon alt='' src={GoogleIcon} />
+                    <Icon alt='google-icon' src={GoogleIcon} />
                     <HeaderCreateAccount>Criar uma Conta</HeaderCreateAccount>
                     <HeaderCreateSpan>Insira seus dados</HeaderCreateSpan>
                     <InputBox>

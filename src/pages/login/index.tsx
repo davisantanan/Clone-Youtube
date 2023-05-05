@@ -16,7 +16,7 @@ function Login(){
         <>
             <Container>
                 <ContentContainer>
-                    <Icon alt='' src={GoogleIcon} />
+                    <Icon alt='google-icon' src={GoogleIcon} />
                     <HeaderLogin>Fazer Login</HeaderLogin>
                     <HeaderLoginSpan>Prosseguir no Youtube</HeaderLoginSpan>
                     <InputBox>

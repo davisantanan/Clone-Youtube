@@ -47,27 +47,27 @@ function DropDowMenu(){
     }, [setOpenDropMenu]);
     
     const channel = [
-        {name: 'Seu canal', button: <ButtonIcon alt="" src={ProfileIcon} /> },
-        {name: 'Youtube Studio', button: <ButtonIcon alt="" src={StudioIcon} /> },
-        {name: 'Alternar Conta', button: <ButtonIcon alt="" src={ProfileChange} /> },
+        {name: 'Seu canal', button: <ButtonIcon alt="your-channel" src={ProfileIcon} /> },
+        {name: 'Youtube Studio', button: <ButtonIcon alt="studio" src={StudioIcon} /> },
+        {name: 'Alternar Conta', button: <ButtonIcon alt="change-account" src={ProfileChange} /> },
     ]
     
     const buy = [
-        {name: 'Compras e assinaturas', button: <ButtonIcon alt="" src={BuyIcon} /> },
-        {name: 'Seus dados no Youtube', button: <ButtonIcon alt="" src={DataYoutubeIcon} /> }
+        {name: 'Compras e assinaturas', button: <ButtonIcon alt="buys" src={BuyIcon} /> },
+        {name: 'Seus dados no Youtube', button: <ButtonIcon alt="yt-data" src={DataYoutubeIcon} /> }
     ]
     
     const appearance = [
-        {name: 'Aparência: claro', button: <ButtonIcon alt="" src={MoonIcon} /> },
-        {name: 'Idioma: Português', button: <ButtonIcon alt="" src={LanguageIcon} /> },
-        {name: 'Modo restrito: desativado', button: <ButtonIcon alt="" src={SecurityIcon} /> },
-        {name: 'Local: Brasil', button: <ButtonIcon alt="" src={GloboIcon} /> },
-        {name: 'Atalhos do teclado', button: <ButtonIcon alt="" src={KeyboardIcon} /> },
+        {name: 'Aparência: claro', button: <ButtonIcon alt="theme" src={MoonIcon} /> },
+        {name: 'Idioma: Português', button: <ButtonIcon alt="language" src={LanguageIcon} /> },
+        {name: 'Modo restrito: desativado', button: <ButtonIcon alt="restrict-mode" src={SecurityIcon} /> },
+        {name: 'Local: Brasil', button: <ButtonIcon alt="local" src={GloboIcon} /> },
+        {name: 'Atalhos do teclado', button: <ButtonIcon alt="keyboard" src={KeyboardIcon} /> },
     ]
 
     const help = [
-        {name: 'Ajuda', button: <ButtonIcon alt="" src={HelpIcon} /> },
-        {name: 'Enviar feedback', button: <ButtonIcon alt="" src={FeedBackIcon} /> },
+        {name: 'Ajuda', button: <ButtonIcon alt="help" src={HelpIcon} /> },
+        {name: 'Enviar feedback', button: <ButtonIcon alt="feedback" src={FeedBackIcon} /> },
     ]
 
     return(
@@ -93,7 +93,7 @@ function DropDowMenu(){
                 </MenuItem>
             ))}
             <MenuItem onClick={() => logOut()}>
-                <ButtonIcon alt="" src={Exit}/>
+                <ButtonIcon alt="exit-button" src={Exit}/>
                 <span>Sair</span>
             </MenuItem>
             <Divider />
@@ -112,7 +112,7 @@ function DropDowMenu(){
             ))}
             <Divider />
             <MenuItem>
-                <ButtonIcon alt="" src={SettingsIcon}/>
+                <ButtonIcon alt="settings-button" src={SettingsIcon}/>
                 <span>Configurações</span>
             </MenuItem>
             <Divider />

@@ -49,39 +49,39 @@ import { UserContext } from '../../contexts/userContext';
 
 
 const home = [
-    { name: 'Inicio', button: <ButtonIcon alt="" src={HomeIcon} />, link: '/' },
-    { name: 'Shorts', button : <ButtonIcon alt="" src={ShortsIcon} />, link: '' },
-    { name: 'Inscrições', button : <ButtonIcon alt="" src={SubscribeIcon} />, link: ''}
+    { name: 'Inicio', button: <ButtonIcon alt="start" src={HomeIcon} />, link: '/' },
+    { name: 'Shorts', button : <ButtonIcon alt="shorts" src={ShortsIcon} />, link: '' },
+    { name: 'Inscrições', button : <ButtonIcon alt="subscribes" src={SubscribeIcon} />, link: ''}
 ];
 
 const libray = [
-    {name: 'Biblioteca', button: <ButtonIcon alt="" src={LibrayIcon} />},
-    {name: 'Histórico', button: <ButtonIcon alt="" src={HistoricIcon} />, }
+    {name: 'Biblioteca', button: <ButtonIcon alt="library" src={LibrayIcon} />},
+    {name: 'Histórico', button: <ButtonIcon alt="history" src={HistoricIcon} />, }
 ]
 
 const explore = [
-    {name: 'Em alta', button: <ButtonIcon alt="" src={TrendingIcon} />},
-    {name: 'Shopping', button: <ButtonIcon alt="" src={ShoppingIcon} />},
-    {name: 'Música', button: <ButtonIcon alt="" src={MusicIcon} />},
-    {name: 'Filmes', button: <ButtonIcon alt="" src={FilmIcon} />},
-    {name: 'Ao vivo', button: <ButtonIcon alt="" src={LiveIcon} />},
-    {name: 'Jogos', button: <ButtonIcon alt="" src={GameIcon} />},
-    {name: 'Noticías', button: <ButtonIcon alt="" src={NewsIcon} />},
-    {name: 'Esportes', button: <ButtonIcon alt="" src={SportsIcon} />},
-    {name: 'Aprender', button: <ButtonIcon alt="" src={StudyIcon} />},
+    {name: 'Em alta', button: <ButtonIcon alt="high" src={TrendingIcon} />},
+    {name: 'Shopping', button: <ButtonIcon alt="shopping" src={ShoppingIcon} />},
+    {name: 'Música', button: <ButtonIcon alt="music" src={MusicIcon} />},
+    {name: 'Filmes', button: <ButtonIcon alt="film" src={FilmIcon} />},
+    {name: 'Ao vivo', button: <ButtonIcon alt="live" src={LiveIcon} />},
+    {name: 'Jogos', button: <ButtonIcon alt="games" src={GameIcon} />},
+    {name: 'Noticías', button: <ButtonIcon alt="new" src={NewsIcon} />},
+    {name: 'Esportes', button: <ButtonIcon alt="sports" src={SportsIcon} />},
+    {name: 'Aprender', button: <ButtonIcon alt="study" src={StudyIcon} />},
 ]
 
 const youtube = [
-    {name: 'Youtube Premium', button: <ButtonIcon alt="" src={YoutubeIcon} />},
-    {name: 'Youtube Music', button: <ButtonIcon alt="" src={YoutubeMusic} />},
-    {name: 'Youtube Kids', button: <ButtonIcon alt="" src={YoutubeKids} />},
+    {name: 'Youtube Premium', button: <ButtonIcon alt="yt-premium" src={YoutubeIcon} />},
+    {name: 'Youtube Music', button: <ButtonIcon alt="yt-music" src={YoutubeMusic} />},
+    {name: 'Youtube Kids', button: <ButtonIcon alt="yt-kids" src={YoutubeKids} />},
 ]
 
 const settings = [
-    {name: 'Configurações', button: <ButtonIcon alt="" src={SettingsIcon} />},
-    {name: 'Histórico de denúncias', button: <ButtonIcon alt="" src={FlagIcon} />},
-    {name: 'Ajuda', button: <ButtonIcon alt="" src={HelpIcon} />},
-    {name: 'Enviar feedback', button: <ButtonIcon alt="" src={FeedbackIcon} />},
+    {name: 'Configurações', button: <ButtonIcon alt="settings" src={SettingsIcon} />},
+    {name: 'Histórico de denúncias', button: <ButtonIcon alt="history-flag" src={FlagIcon} />},
+    {name: 'Ajuda', button: <ButtonIcon alt="help" src={HelpIcon} />},
+    {name: 'Enviar feedback', button: <ButtonIcon alt="feedback" src={FeedbackIcon} />},
 ]
 
 function Menu(){
@@ -94,7 +94,7 @@ function Menu(){
         if(window.innerWidth < 1300) {
             setOpenMenu(false);
         }
-    },[location, setOpenMenu])
+    },[location])
 
     useEffect(() => {
         function handleResize(){
@@ -121,9 +121,9 @@ function Menu(){
         <Container openMenu={openMenu}>
             <MenuHeader openMenu={openMenu}>
                 <ButtonContainer onClick={() => setOpenMenu(false)}>
-                    <ButtonIconHeader alt="" src={HamburguerIcon} />
+                    <ButtonIconHeader alt="menu" src={HamburguerIcon} />
                 </ButtonContainer>
-                <img alt="" src={Logo} onClick={() => navigate('/')} />
+                <img alt="logo" src={Logo} onClick={() => navigate('/')} />
             </MenuHeader>
             {home.map((item) => (
                 <MenuItem openMenu={openMenu} onClick={() => navigate(item.link)} >
@@ -145,7 +145,7 @@ function Menu(){
                         Faça login para curtir vídeos, comentar e se inscrever.
                     </TextLogin>
                     <LoginButton onClick={() => navigate('/login')}>
-                        <ImgLogin alt="" src={AvatarIcon}/>
+                        <ImgLogin alt="avatar" src={AvatarIcon}/>
                         <TextImgLogin>Fazer Login</TextImgLogin>
                     </LoginButton>
                 </LoginContainer>
@@ -159,7 +159,7 @@ function Menu(){
                 ))}
                 <Divider openMenu={openMenu}/>
                 <MenuItem openMenu={openMenu}>
-                    <ButtonIcon alt="" src={AddIcon} />
+                    <ButtonIcon alt="add-channel" src={AddIcon} />
                     <span>Procurar Canais</span>
                 </MenuItem>
                 <Divider openMenu={openMenu}/>

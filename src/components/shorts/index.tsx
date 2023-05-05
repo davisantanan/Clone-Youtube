@@ -90,7 +90,7 @@ function Shorts(){
     return(
         <>
             <TitleContainer>
-                <ImgTitle alt="" src={TitleIcon} />
+                <ImgTitle alt="title-icon" src={TitleIcon} />
                 <TextTitle>Shorts</TextTitle>
             </TitleContainer>
             <Container openShorts={openShorts}>
@@ -105,7 +105,7 @@ function Shorts(){
                 ))}
             </Container>
             <ButtonOpen openShorts={openShorts} onClick={() => setOpenShorts(true)}>
-                <ButtonIcon alt="" src={SetaIcon} />
+                <ButtonIcon alt="open-shorts" src={SetaIcon} />
             </ButtonOpen>
             <Divider />
         </>
