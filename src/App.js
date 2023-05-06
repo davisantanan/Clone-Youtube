@@ -17,12 +17,12 @@ function App() {
           <MenuStore>
             <DropMenuStore>
               <div className="App">
-                <div className="hero-container">
-                    <Routes>
-                      <Route path='/' element={<Home />} />
-                      <Route path='/login' element={<Login />} />
-                      <Route path='/sign-up' element={<CreateAccount />} />
-                    </Routes>
+                <div className="hero-container"> 
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/sign-up" element={<CreateAccount />} />
+                  </Routes>
                 </div>
               </div>
             </DropMenuStore>

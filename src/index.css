@@ -17,14 +17,8 @@ code {
   display: flex;
 }
 
-.content-container {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 50px 70px;
-}
-
 * {
-  scrollbar-width: 10px;
+  scrollbar-width: thin;
   scrollbar-color: #8c8c8c;
 }
 
