@@ -1,4 +1,7 @@
-import { Buttons, Carousel, CategoryBox, 
+import { 
+    Buttons, 
+    Carousel, 
+    CategoryBox, 
     CategoryItem, 
     Container, 
     Left, 
