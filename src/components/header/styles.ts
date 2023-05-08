@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+interface typesHeader{
+    openSearchBar?: boolean;
+    margin?: string;
+    login?: boolean;
+}
+
 export const Container = styled.header `
     min-width: 100%;
     height: 55px;
@@ -14,7 +20,7 @@ export const Container = styled.header `
     z-index: 1;
 `;
 
-export const LogoContainer = styled.div<{ openSearchBar:boolean }> `
+export const LogoContainer = styled.div<typesHeader> `
     display: flex;
     align-items: center;
 
@@ -32,7 +38,7 @@ export const LogoContainer = styled.div<{ openSearchBar:boolean }> `
     }
 `;
 
-export const ButtonContainerLogo = styled.div<{ margin?: string, openSearchBar?:boolean }> `
+export const ButtonContainerLogo = styled.div<typesHeader> `
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -51,7 +57,7 @@ export const ButtonContainerLogo = styled.div<{ margin?: string, openSearchBar?:
     }
 `;
 
-export const ButtonContainer = styled.div<{ margin?: string, openSearchBar?:boolean }> `
+export const ButtonContainer = styled.div<typesHeader> `
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -71,7 +77,7 @@ export const ButtonContainer = styled.div<{ margin?: string, openSearchBar?:bool
     }
 `;
 
-export const ButtonContainerResponsive = styled.div<{ margin?: string }> `
+export const ButtonContainerResponsive = styled.div<typesHeader> `
     display: none;
     
     @media(max-width: 768px) {
@@ -109,7 +115,7 @@ export const SearchContainer = styled.div `
 
 `;
 
-export const SearchInputContainer = styled.div<{ openSearchBar:boolean }> `
+export const SearchInputContainer = styled.div<typesHeader> `
     width: 450px;
     height: 35px;
     border: 1px solid #d3d3d3;
@@ -151,7 +157,7 @@ export const SearchButton = styled.div `
     };
 `;
 
-export const HeaderButtons = styled.div<{ login:boolean, openSearchBar:boolean }>`
+export const HeaderButtons = styled.div<typesHeader>`
     width: ${({ login }) => login? '200px' : '270px'};
     display: flex;
     
