@@ -37,6 +37,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 - npm install axios
 - npm install moment
 - npm intall react-router-dom
+- npm start
 
 
 
