@@ -10,6 +10,7 @@ Este projeto tem como objetivo estudo e incrementação do portfólio, trata-se 
 
 - [x] Cadastro de usuário
 - [x] Login de usuário
+- [x] Logout
 - [ ] Implementação de pesquisa
 
 ## 🛠 Ferramentas
