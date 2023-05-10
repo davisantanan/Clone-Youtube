@@ -10,10 +10,10 @@ export const Container = styled.div `
     margin-bottom: 20px;
     background-color: #fff;
     
-
+    
     @media(max-width: 500px) {
-        top: 55px;
-        padding-top: 10px;      
+        top: 54px;
+        padding: 10px 15px 0;      
     }
 `;
 
@@ -28,11 +28,11 @@ export const Carousel = styled.div `
     align-items: center;
     gap: 10px;
     margin-left: -45px;
-    
+    -webkit-overflow-scrolling: touch;
 
     @media(max-width: 500px) {
-        -webkit-overflow-scrolling: touch;
         overflow-x: auto;
+        margin-left: -30px;
     }
 `;
 

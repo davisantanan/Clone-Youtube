@@ -38,6 +38,10 @@ export const MainContainer = styled.div<{ openMenu:boolean }> `
     @media(max-width: 768px) {
         padding: 50px 70px;
     }
+    
+    @media(max-width: 500px) {
+        padding: 50px 40px;
+    }
 `;
 
 export const Divider = styled.div `

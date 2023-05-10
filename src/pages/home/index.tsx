@@ -40,8 +40,8 @@ function Home(){
   useEffect(() => {
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [categoryId])
-
+  }, [categoryId]);
+  
   const API_KEY = 'AIzaSyCMpWvUwocM23yBOpkz6VpWuY6y6E99sb8'
 
   const url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&part=statistics&chart=mostPopular&hl=pt_BR&maxResults=24&regionCode=br&videoCategoryId=${categoryId}&key=${API_KEY}`
