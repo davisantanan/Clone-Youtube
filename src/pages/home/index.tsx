@@ -1,7 +1,12 @@
 import Header from "../../components/header";
 import Menu from "../../components/menu";
 import VideoComponent from "../../components/videoComponent";
-import { Container, Divider, HomeContainer, MainContainer } from "./styles";
+import { 
+  Container, 
+  Divider, 
+  HomeContainer, 
+  MainContainer 
+} from "./styles";
 import { useContext, useEffect, useState } from 'react';
 import { MenuContext } from "../../contexts/menuContext";
 import { CategoryContext } from '../../contexts/categoryContext';
