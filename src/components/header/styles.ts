@@ -112,7 +112,6 @@ export const SearchContainer = styled.div `
     @media(max-width: 568px) {
         width: 50%;
     }
-
 `;
 
 export const SearchInputContainer = styled.div<typesHeader> `
