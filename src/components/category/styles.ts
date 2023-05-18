@@ -4,7 +4,7 @@ export const Container = styled.div `
     min-width: 100%;
     max-width: 1500px;
     position: sticky;
-    top: 55px;
+    top: 54px;
     height: 50px;
     padding-top: 10px;
     margin-bottom: 20px;
@@ -12,7 +12,6 @@ export const Container = styled.div `
     
     
     @media(max-width: 500px) {
-        top: 54px;
         padding: 10px 15px 0;      
     }
 `;
