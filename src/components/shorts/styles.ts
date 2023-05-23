@@ -61,7 +61,7 @@ export const ContentContainer = styled.div `
     width: 100%;
     cursor: pointer;
 
-    @media(max-width: 500px) {
+    @media(max-width: 600px) {
         width: 80%;
     }
 `;
@@ -71,7 +71,7 @@ export const ImgContent = styled.img `
     height: 300px;
     border-radius: 12px;
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
         height: 250px;
         width: 120px;
     }
@@ -90,7 +90,7 @@ export const Title = styled.span `
     margin: 5px 0 5px 0;
     font-size: 16px;
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
         font-size: 14px;
     }
 `;
@@ -99,7 +99,7 @@ export const TextCard = styled.span `
     color: #8c8c8c;
     font-size: 14px;
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
         font-size: 13px;
     }
 `;

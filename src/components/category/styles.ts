@@ -11,7 +11,7 @@ export const Container = styled.div `
     background-color: #fff;
     
     
-    @media(max-width: 500px) {
+    @media(max-width: 600px) {
         padding: 10px 15px 0;      
     }
 `;
@@ -29,7 +29,7 @@ export const Carousel = styled.div `
     margin-left: -45px;
     -webkit-overflow-scrolling: touch;
 
-    @media(max-width: 500px) {
+    @media(max-width: 600px) {
         overflow-x: auto;
         margin-left: -30px;
     }
@@ -42,7 +42,7 @@ export const Buttons = styled.div `
     cursor: pointer;
     width: 100%;
 
-    @media(max-width: 500px) {
+    @media(max-width: 600px) {
         display: none
     }
 `;

@@ -14,7 +14,6 @@ export const Container = styled.div<{ openMenu:boolean }> `
     top: 55px;
     transition: 0.2s;
     
-
     @media(max-width: 1300px) {
         background-color: #fff;
         z-index: 2;
@@ -26,7 +25,7 @@ export const Container = styled.div<{ openMenu:boolean }> `
         display: ${({ openMenu }) => openMenu ? 'flex' : 'none'};
     }
 
-    @media(max-width: 500px) {
+    @media(max-width: 600px) {
         position: fixed;
         width: 100vw;
     }
@@ -92,7 +91,7 @@ export const MenuOverLay = styled.div<{ openMenu:boolean }>`
     display: ${({ openMenu }) => openMenu? 'block': 'none'};
     }
 
-    @media(max-width: 500px) {
+    @media(max-width: 600px) {
         display: none;
     }
 `;
@@ -148,7 +147,7 @@ export const LoginContainer = styled.div<{ login:boolean }> `
     justify-content: center;
     margin-bottom: 10px;
 
-    @media(max-width: 500px) {
+    @media(max-width: 600px) {
         width: 60%
     }
 `;
@@ -164,7 +163,7 @@ export const TextLogin = styled.span `
     width: 90%;
     padding: 2px 15px;
 
-    @media(max-width: 500px) {
+    @media(max-width: 600px) {
         display: none;
     }
 `;
@@ -196,7 +195,7 @@ export const LoginButton = styled.div `
         background-color: #4285f430;
     }
 
-    @media(max-width: 500px) {
+    @media(max-width: 600px) {
         width: 60%;
         height: 40px;
     }
@@ -227,7 +226,7 @@ export const Footer = styled.footer `
         margin-top: 5px;
     }
 
-    @media(max-width: 500px) {
+    @media(max-width: 600px) {
         display: none;
     }
 `;

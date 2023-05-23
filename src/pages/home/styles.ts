@@ -39,7 +39,7 @@ export const MainContainer = styled.div<{ openMenu:boolean }> `
         padding: 50px 70px;
     }
     
-    @media(max-width: 500px) {
+    @media(max-width: 600px) {
         padding: 50px 40px;
     }
 `;
