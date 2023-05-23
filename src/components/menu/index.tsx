@@ -90,11 +90,16 @@ function Menu(){
     const navigate = useNavigate();
     const location = useLocation();
 
+    const handleMenuClick = (e:React.MouseEvent<HTMLElement, MouseEvent>)=> {
+        e.stopPropagation();
+    }
+
     useEffect(() => {
         if(window.innerWidth < 1300) {
             setOpenMenu(false);
         }
-    },[location])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[location]);
 
     useEffect(() => {
         function handleResize(){
@@ -117,85 +122,85 @@ function Menu(){
  
     return(
         <>
-        <MenuOverLay openMenu={openMenu} /> 
-        <Container openMenu={openMenu}>
-            <MenuHeader openMenu={openMenu}>
-                <ButtonContainer onClick={() => setOpenMenu(false)}>
-                    <ButtonIconHeader alt="menu" src={HamburguerIcon} />
-                </ButtonContainer>
-                <img alt="logo" src={Logo} onClick={() => navigate('/')} />
-            </MenuHeader>
-            {home.map((item) => (
-                <MenuItem openMenu={openMenu} onClick={() => navigate(item.link)} >
-                    {item.button}
-                    <span>{item.name}</span>
-                </MenuItem>
-            ))}
-            <Divider openMenu={openMenu}/>
-            {libray.map((item) => (
-                <MenuItem openMenu={openMenu}>
-                    {item.button}
-                    <span>{item.name}</span>
-                </MenuItem>
-            ))}
-            <Divider openMenu={openMenu}/>
-            <OpenMenuContainer openMenu={openMenu}>
-                <LoginContainer login={login}>
-                    <TextLogin>
-                        Faça login para curtir vídeos, comentar e se inscrever.
-                    </TextLogin>
-                    <LoginButton onClick={() => navigate('/login')}>
-                        <ImgLogin alt="avatar" src={AvatarIcon}/>
-                        <TextImgLogin>Fazer Login</TextImgLogin>
-                    </LoginButton>
-                </LoginContainer>
-                <DividerLogin login={login}/>
-                <TitleSession>Explorar</TitleSession>
-                {explore.map((item) => (
+            <MenuOverLay openMenu={openMenu} /> 
+            <Container openMenu={openMenu} onMouseDown={handleMenuClick}>
+                <MenuHeader openMenu={openMenu}>
+                    <ButtonContainer onClick={() => setOpenMenu(false)}>
+                        <ButtonIconHeader alt="menu" src={HamburguerIcon} />
+                    </ButtonContainer>
+                    <img alt="logo" src={Logo} onClick={() => navigate('/')} />
+                </MenuHeader>
+                {home.map((item) => (
+                    <MenuItem openMenu={openMenu} onClick={() => navigate(item.link)} >
+                        {item.button}
+                        <span>{item.name}</span>
+                    </MenuItem>
+                ))}
+                <Divider openMenu={openMenu}/>
+                {libray.map((item) => (
                     <MenuItem openMenu={openMenu}>
                         {item.button}
                         <span>{item.name}</span>
                     </MenuItem>
                 ))}
                 <Divider openMenu={openMenu}/>
-                <MenuItem openMenu={openMenu}>
-                    <ButtonIcon alt="add-channel" src={AddIcon} />
-                    <span>Procurar Canais</span>
-                </MenuItem>
-                <Divider openMenu={openMenu}/>
-                <TitleSession>Mais do Youtube</TitleSession>
-                {youtube.map((item) => (
-                    <MenuItem openMenu={openMenu}>
-                        {item.button}
-                        <span>{item.name}</span>
-                    </MenuItem>
-                ))}  
-                <Divider openMenu={openMenu}/>
-                {settings.map((item) => (
-                    <MenuItem openMenu={openMenu}>
-                        {item.button}
-                        <span>{item.name}</span>
-                    </MenuItem>
-                ))}  
-                <Footer>
+                <OpenMenuContainer openMenu={openMenu}>
+                    <LoginContainer login={login}>
+                        <TextLogin>
+                            Faça login para curtir vídeos, comentar e se inscrever.
+                        </TextLogin>
+                        <LoginButton onClick={() => navigate('/login')}>
+                            <ImgLogin alt="avatar" src={AvatarIcon}/>
+                            <TextImgLogin>Fazer Login</TextImgLogin>
+                        </LoginButton>
+                    </LoginContainer>
+                    <DividerLogin login={login}/>
+                    <TitleSession>Explorar</TitleSession>
+                    {explore.map((item) => (
+                        <MenuItem openMenu={openMenu}>
+                            {item.button}
+                            <span>{item.name}</span>
+                        </MenuItem>
+                    ))}
                     <Divider openMenu={openMenu}/>
-                    <p>
-                        Sobre   Imprensa <br />
-                        Direitos autorais <br />
-                        Entre em contato <br />
-                        Criadores de conteúdo <br />
-                        Publicidade  Desenvolvedores  
-                    </p>
-                    <p>
-                        Termos Privacidade <br />
-                        Política e segurança <br />
-                        Como funciona o youtube <br />
-                        Testar os novos recursos
-                    </p>
-                    <span>© 2023 Google LLC</span>
-                </Footer>
-            </OpenMenuContainer>
-        </Container>
+                    <MenuItem openMenu={openMenu}>
+                        <ButtonIcon alt="add-channel" src={AddIcon} />
+                        <span>Procurar Canais</span>
+                    </MenuItem>
+                    <Divider openMenu={openMenu}/>
+                    <TitleSession>Mais do Youtube</TitleSession>
+                    {youtube.map((item) => (
+                        <MenuItem openMenu={openMenu}>
+                            {item.button}
+                            <span>{item.name}</span>
+                        </MenuItem>
+                    ))}  
+                    <Divider openMenu={openMenu}/>
+                    {settings.map((item) => (
+                        <MenuItem openMenu={openMenu}>
+                            {item.button}
+                            <span>{item.name}</span>
+                        </MenuItem>
+                    ))}  
+                    <Footer>
+                        <Divider openMenu={openMenu}/>
+                        <p>
+                            Sobre   Imprensa <br />
+                            Direitos autorais <br />
+                            Entre em contato <br />
+                            Criadores de conteúdo <br />
+                            Publicidade  Desenvolvedores  
+                        </p>
+                        <p>
+                            Termos Privacidade <br />
+                            Política e segurança <br />
+                            Como funciona o youtube <br />
+                            Testar os novos recursos
+                        </p>
+                        <span>© 2023 Google LLC</span>
+                    </Footer>
+                </OpenMenuContainer>
+            </Container>
         </>
     )
 }

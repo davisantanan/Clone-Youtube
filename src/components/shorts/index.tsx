@@ -76,9 +76,9 @@ function Shorts(){
             text: '230 mil visualizações'
         },
         {
-            image: "https://i.ytimg.com/vi/JP2m7CWAxHo/hq720_2.jpg?sqp=-oaymwEdCJUDENAFSFTyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLAA-O7yjjOFOBQVnn3Bv1Cdq3jMoA",
-            title: 'pikachu pikachu',
-            text: '84 mi de visualizações'
+            image: "https://i.ytimg.com/vi/-H_4EjZnsDQ/oar2.jpg?sqp=-oaymwEaCJUDENAFSFXyq4qpAwwIARUAAIhCcAHAAQY=&rs=AOn4CLDCRAbTARM8By2GREtkE0ZF41YI7w",
+            title: 'PASSA O CONTATO, FILHO! - #Shorts',
+            text: '2,2 mi de visualizações'
         },
         {
             image: "https://i.ytimg.com/vi/u-MhS55zeLc/hq720.jpg?sqp=-oaymwEdCJUDENAFSFTyq4qpAw8IARUAAIhCcAHAAQbQAQE=&rs=AOn4CLCeDd1kbk2_e-V2zSh-ZmwPZAnGLA",
