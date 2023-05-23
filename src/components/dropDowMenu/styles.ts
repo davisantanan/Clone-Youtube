@@ -11,7 +11,7 @@ export const Container = styled.div<{ openDropMenu:boolean }> `
     border-radius: 8px;
     box-shadow: -3px 1px 18px -6px gray;
 
-    @media(max-width: 500px) {
+    @media(max-width: 600px) {
        position: fixed;
        top: 0;
        right: 0;
