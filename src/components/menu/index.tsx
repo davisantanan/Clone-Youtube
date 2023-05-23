@@ -90,7 +90,11 @@ function Menu(){
     const navigate = useNavigate();
     const location = useLocation();
 
-    
+    const handleScroll = () => {
+        if (window.scrollY === 0 || window.scrollY + window.innerHeight === document.documentElement.scrollHeight) {
+          setOpenMenu(false);
+        }
+      };
 
     useEffect(() => {
         function handleResize(){
@@ -101,9 +105,12 @@ function Menu(){
         }
         handleResize();
         window.addEventListener('resize', handleResize);
-        return() => window.removeEventListener('resize', handleResize);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [setOpenMenu, location]);
+        window.addEventListener('scroll', handleScroll);
+        return() => {
+            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('scroll', handleScroll);
+        }
+    }, [openMenu,setOpenMenu,location]);
 
     useEffect(() => {
         if(openMenu && window.innerWidth < 1300) {

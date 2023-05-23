@@ -28,7 +28,6 @@ export const Container = styled.div<{ openMenu:boolean }> `
     @media(max-width: 600px) {
         position: fixed;
         width: 100vw;
-        height: 100vh;
     }
 `;
 
