@@ -90,10 +90,6 @@ function Menu(){
     const navigate = useNavigate();
     const location = useLocation();
 
-    const handleMenuClick = (e:React.MouseEvent<HTMLElement, MouseEvent>)=> {
-        e.stopPropagation();
-    }
-
     useEffect(() => {
         if(window.innerWidth < 1300) {
             setOpenMenu(false);
@@ -123,7 +119,7 @@ function Menu(){
     return(
         <>
             <MenuOverLay openMenu={openMenu} /> 
-            <Container openMenu={openMenu} onMouseDown={handleMenuClick}>
+            <Container openMenu={openMenu}>
                 <MenuHeader openMenu={openMenu}>
                     <ButtonContainer onClick={() => setOpenMenu(false)}>
                         <ButtonIconHeader alt="menu" src={HamburguerIcon} />

@@ -8,7 +8,7 @@ export const Container = styled.div<{ openMenu:boolean }> `
     display: flex;
     align-items: center;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     position: fixed;    
     top: 55px;
