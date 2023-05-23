@@ -31,7 +31,7 @@ code {
   border-radius: 20px;
 }
 
-@media(max-width: 500px) {
+@media(max-width: 600px) {
   body{
     -ms-overflow-style: none;
   }

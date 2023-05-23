@@ -32,10 +32,6 @@ export const Container = styled.div<{ openShorts:boolean }>`
     }
 
     @media(max-width: 600px) {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media(max-width: 500px) {
         display: flex;
         overflow-x: auto;
         scroll-behavior: smooth;
@@ -43,7 +39,6 @@ export const Container = styled.div<{ openShorts:boolean }>`
         height: 360px;
         -webkit-overflow-scrolling: touch;
     }
-
 `;
 
 export const TitleContainer = styled.div `
@@ -125,7 +120,7 @@ export const ButtonOpen = styled.button<{ openShorts:boolean }> `
         background-color: rgba(0, 0, 0, 0.15);
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
         display: none    
     }
 `;
