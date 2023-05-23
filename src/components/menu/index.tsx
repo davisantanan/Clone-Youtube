@@ -17,7 +17,7 @@ import {
     ButtonContainer,
     ButtonIconHeader
 } from "./styles";
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { MenuContext } from "../../contexts/menuContext";
 import HomeIcon from '../../assets/amenu/botao-home.png';
 import ShortsIcon from '../../assets/amenu/short-icon.png';
@@ -89,12 +89,17 @@ function Menu(){
     const { login } = useContext(UserContext);
     const navigate = useNavigate();
     const location = useLocation();
+    const [scrollPosition, setScrollPosition] = useState(0);
 
-    const handleScroll = () => {
-        if (window.scrollY === 0 || window.scrollY + window.innerHeight === document.documentElement.scrollHeight) {
-          setOpenMenu(false);
+    useEffect(() => {
+        function handleScroll(){
+            setScrollPosition(window.scrollY)
         }
-      };
+        window.addEventListener('scroll', handleScroll);
+        return() => {
+            window.removeEventListener('scroll', handleScroll)
+        } 
+    })
 
     useEffect(() => {
         function handleResize(){
@@ -105,11 +110,10 @@ function Menu(){
         }
         handleResize();
         window.addEventListener('resize', handleResize);
-        window.addEventListener('scroll', handleScroll);
         return() => {
             window.removeEventListener('resize', handleResize);
-            window.removeEventListener('scroll', handleScroll);
-        }
+        } 
+        
     }, [openMenu,setOpenMenu,location]);
 
     useEffect(() => {
@@ -125,7 +129,7 @@ function Menu(){
     return(
         <>
             <MenuOverLay openMenu={openMenu} /> 
-            <Container openMenu={openMenu}>
+            <Container openMenu={openMenu || scrollPosition > 0}>
                 <MenuHeader openMenu={openMenu}>
                     <ButtonContainer onClick={() => setOpenMenu(false)}>
                         <ButtonIconHeader alt="menu" src={HamburguerIcon} />
