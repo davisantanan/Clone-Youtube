@@ -90,21 +90,20 @@ function Menu(){
     const navigate = useNavigate();
     const location = useLocation();
 
-    useEffect(() => {
-        if(window.innerWidth < 1300) {
-            setOpenMenu(false);
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[location]);
+    
 
     useEffect(() => {
         function handleResize(){
-            setOpenMenu(window.innerWidth > 1300);
+            const windowWideEnough = window.innerWidth > 1300
+            if(openMenu && !windowWideEnough) {
+                setOpenMenu(false);
+            }
         }
         handleResize();
         window.addEventListener('resize', handleResize);
         return() => window.removeEventListener('resize', handleResize);
-    }, [setOpenMenu]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [setOpenMenu, location]);
 
     useEffect(() => {
         if(openMenu && window.innerWidth < 1300) {
