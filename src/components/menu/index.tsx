@@ -17,7 +17,7 @@ import {
     ButtonContainer,
     ButtonIconHeader
 } from "./styles";
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { MenuContext } from "../../contexts/menuContext";
 import HomeIcon from '../../assets/amenu/botao-home.png';
 import ShortsIcon from '../../assets/amenu/short-icon.png';
@@ -89,32 +89,24 @@ function Menu(){
     const { login } = useContext(UserContext);
     const navigate = useNavigate();
     const location = useLocation();
-    const [scrollPosition, setScrollPosition] = useState(0);
 
     useEffect(() => {
-        function handleScroll(){
-            setScrollPosition(window.scrollY)
+        if(window.innerWidth < 1300) {
+            setOpenMenu(false);
         }
-        window.addEventListener('scroll', handleScroll);
-        return() => {
-            window.removeEventListener('scroll', handleScroll)
-        } 
-    })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[location]);
 
     useEffect(() => {
         function handleResize(){
-            const windowWideEnough = window.innerWidth > 1300
-            if(openMenu && !windowWideEnough) {
-                setOpenMenu(false);
-            }
+            setOpenMenu(window.innerWidth > 1300)
         }
         handleResize();
         window.addEventListener('resize', handleResize);
         return() => {
             window.removeEventListener('resize', handleResize);
         } 
-        
-    }, [openMenu,setOpenMenu,location]);
+    }, [setOpenMenu]);
 
     useEffect(() => {
         if(openMenu && window.innerWidth < 1300) {
@@ -129,7 +121,7 @@ function Menu(){
     return(
         <>
             <MenuOverLay openMenu={openMenu} /> 
-            <Container openMenu={openMenu || scrollPosition > 0}>
+            <Container openMenu={openMenu}>
                 <MenuHeader openMenu={openMenu}>
                     <ButtonContainer onClick={() => setOpenMenu(false)}>
                         <ButtonIconHeader alt="menu" src={HamburguerIcon} />
