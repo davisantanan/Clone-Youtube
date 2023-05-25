@@ -6,6 +6,8 @@ import { DropMenuStore } from "./contexts/dropDownMenuContext";
 import { UserStorage } from './contexts/userContext';
 import { ContextStore } from "./contexts/categoryContext";
 import CreateAccount from "./pages/createAccount";
+import SearchPage from "./pages/search";
+import { SearchStore } from "./contexts/searchContext";
 
 
 function App() {
@@ -16,15 +18,18 @@ function App() {
         <ContextStore>
           <MenuStore>
             <DropMenuStore>
-              <div className="App">
-                <div className="hero-container"> 
-                  <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/sign-up" element={<CreateAccount />} />
-                  </Routes>
+              <SearchStore>
+                <div className="App">
+                  <div className="hero-container"> 
+                    <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/login" element={<Login />} />
+                      <Route path="/sign-up" element={<CreateAccount />} />
+                      <Route path="/search" element={<SearchPage />} />
+                    </Routes>
+                  </div>
                 </div>
-              </div>
+              </SearchStore>
             </DropMenuStore>
           </MenuStore>
         </ContextStore>

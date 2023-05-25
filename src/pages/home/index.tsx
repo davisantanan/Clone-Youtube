@@ -89,20 +89,20 @@ function Home(){
         return `há ${diffWeeks} semanas`;
       }
     } else if (diffDays <= 365) {
-      const diffMonths = Math.floor(diffDays / 30);
-      if (diffMonths === 1) {
-        return 'há 1 mês';
+        const diffMonths = Math.floor(diffDays / 30);
+        if (diffMonths === 1) {
+          return 'há 1 mês';
+        } else {
+          return `há ${diffMonths} meses`;
+        }
       } else {
-        return `há ${diffMonths} meses`;
+        const diffYears = Math.floor(diffDays / 365);
+        if (diffYears === 1) {
+          return 'há 1 ano';
+        } else {
+          return `há ${diffYears} anos`;
+        } 
       }
-    } else {
-      const diffYears = Math.floor(diffDays / 365);
-      if (diffYears === 1) {
-        return 'há 1 ano';
-      } else {
-        return `há ${diffYears} anos`;
-      }
-    }
   }
 
   return(

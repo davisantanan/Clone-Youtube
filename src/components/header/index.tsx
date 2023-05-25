@@ -29,6 +29,7 @@ import { UserContext } from "../../contexts/userContext";
 import DropDowMenu from "../dropDowMenu";
 import { DropMenuContext } from "../../contexts/dropDownMenuContext";
 import { MouseEvent } from 'react';
+import { SearchContext } from "../../contexts/searchContext";
 
 
 function Header(){
@@ -36,7 +37,9 @@ function Header(){
     const { login, user } = useContext(UserContext);
     const { openMenu, setOpenMenu } = useContext(MenuContext);
     const { openDropMenu, setOpenDropMenu } = useContext(DropMenuContext);
+    const { setSearch } = useContext(SearchContext);
     const [ openSearchBar, setOpenSearchBar ] = useState(false);
+    const [inputValue, setInputValue] = useState('')
     const navigate = useNavigate();
     
     useEffect(() => {
@@ -47,6 +50,10 @@ function Header(){
     const handleButtonClick = (e:MouseEvent) => {
         e.stopPropagation();
     };
+
+    function handleInput(inputValue: string){
+        setInputValue(inputValue);
+    }
 
     return(
         <Container>
@@ -59,9 +66,30 @@ function Header(){
             
             <SearchContainer>
                 <SearchInputContainer openSearchBar={openSearchBar}>
-                    <SearchInput placeholder="Pesquisar" />
+                    <SearchInput 
+                    placeholder="Pesquisar" 
+                    value={inputValue}
+                    onChange={(e) => {
+                        handleInput(e.target.value)
+                    }}
+                    onKeyDown={(e) => {
+                        if(e.key === "Enter") {
+                            setSearch(inputValue)
+                            navigate('/search')
+                        }
+                    }}
+                    />
                 </SearchInputContainer>
-                <SearchButton>
+                <SearchButton
+                onClick={() => {
+                    if(inputValue.trim() === '') {
+                        alert('Digite algo antes de tentar pesquisar')
+                        return;
+                    }
+                    setSearch(inputValue)
+                    navigate('/search')
+                }}
+                >
                     <ButtonIcon alt="search" src={SearchIcon} />
                 </SearchButton>
                 <ButtonContainer openSearchBar={openSearchBar} margin= '0 0 0 10px'>
