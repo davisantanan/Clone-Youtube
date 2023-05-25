@@ -40,8 +40,8 @@ export const UserStorage = ({ children }: propsContextUser) => {
             navigate('/login');
         } catch (error) {
             console.log('Não foi possível criar um usuário', error);
-    };   
-};
+        };   
+    };
 
     const getUser = async (token:string) => {
         try{
