@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SearchContainer = styled.div `
-    width: 100%;
+  width: 100%;
 `
 export const Container = styled.div<{ openMenu:boolean }>`
   width: 100%;
@@ -24,6 +24,6 @@ export const Container = styled.div<{ openMenu:boolean }>`
   }
 
   @media(max-width: 600px) {
-    padding: 60px 20px 0;
+    padding: 60px 20px 15px 20px;
   }
 `;

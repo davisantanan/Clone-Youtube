@@ -22,6 +22,7 @@ import SearchIcon from '../../assets/aheader/search.png';
 import MicIcon from '../../assets/aheader/microfone-gravador.png';
 import VideoIcon from '../../assets/aheader/video.png';
 import NotificationIcon from '../../assets/aheader/sino.png';
+import ButtonLeft from "../../assets/ahome/left.png";
 import { useContext, useEffect, useState } from 'react';
 import { MenuContext } from "../../contexts/menuContext";
 import { useNavigate } from "react-router-dom";
@@ -65,6 +66,12 @@ function Header(){
             </LogoContainer>
             
             <SearchContainer>
+                <ButtonIcon 
+                openSearchBar={openSearchBar} 
+                alt="back" 
+                src={ButtonLeft} 
+                onClick={() => setOpenSearchBar(false)}
+                />
                 <SearchInputContainer openSearchBar={openSearchBar}>
                     <SearchInput 
                     placeholder="Pesquisar" 
@@ -104,7 +111,15 @@ function Header(){
                 <ButtonContainer openSearchBar={openSearchBar} margin= '0 0 0 10px'>
                     <ButtonIcon alt="notification" src={NotificationIcon} />
                 </ButtonContainer>
-                <ButtonContainerResponsive margin= '0 0 0 10px' onClick={() => setOpenSearchBar(!openSearchBar)}>
+                <ButtonContainerResponsive 
+                margin= '0 0 0 10px' 
+                onClick={ () => {
+                    if(openSearchBar === false) {
+                        setOpenSearchBar(true) 
+                    }
+                    setSearch(inputValue)
+                    navigate('/search') 
+                }}>
                     <ButtonIcon alt="search" src={SearchIcon} />
                 </ButtonContainerResponsive>
                 {login ?

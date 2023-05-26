@@ -4,6 +4,7 @@ import {
   Container, 
   DescriptionContainer, 
   TextCard, 
+  TextCardResponsive, 
   TextContainer, 
   Title, 
   TitleContainer 
@@ -19,22 +20,25 @@ interface Props {
   description: string
 }
 
-function VideoSearchCard(props : Props) {
+function VideoSearchCard(video: Props) {
   return (
     <Container>
-      <Banner style={{ backgroundImage: `url(${props.image})` }}></Banner>
+      <Banner style={{ backgroundImage: `url(${video.image})` }}></Banner>
       <TitleContainer>
         <TextContainer>
-          <Title>{props.title}</Title>
-          <TextCard>{props.details}</TextCard>
+          <Title>{video.title}</Title>
+          <TextCard>
+            <TextCardResponsive>{video.channelName} |</TextCardResponsive>
+            {video.details}
+          </TextCard>
         </TextContainer>
         <ChannelContainer>
-          <span>{props.channelImage}</span>
-          <TextCard>{props.channelName}</TextCard>
+          <span>{video.channelImage}</span>
+          <TextCard>{video.channelName}</TextCard>
         </ChannelContainer>
         <DescriptionContainer>
           <TextCard>
-            {props.description}
+            {video.description}
           </TextCard>
         </DescriptionContainer>
       </TitleContainer>

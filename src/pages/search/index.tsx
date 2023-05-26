@@ -66,25 +66,25 @@ function SearchPage(){
     } else if (diffDays <= 30) {
         const diffWeeks = Math.floor(diffDays / 7);
         if (diffWeeks === 1) {
-            return 'há 1 semana';
-            } else {
-            return `há ${diffWeeks} semanas`;
+          return 'há 1 semana';
+        } else {
+          return `há ${diffWeeks} semanas`;
         }
-    } else if (diffDays <= 365) {
+      } else if (diffDays <= 365) {
         const diffMonths = Math.floor(diffDays / 30);
         if (diffMonths === 1) {
-            return 'há 1 mês';
+          return 'há 1 mês';
         } else {
-            return `há ${diffMonths} meses`;
+          return `há ${diffMonths} meses`;
         }
-    } else {
-        const diffYears = Math.floor(diffDays / 365);
-        if (diffYears === 1) {
-            return 'há 1 ano';
         } else {
-            return `há ${diffYears} anos`;
-        }
-    }
+            const diffYears = Math.floor(diffDays / 365);
+            if (diffYears === 1) {
+              return 'há 1 ano';
+            } else {
+              return `há ${diffYears} anos`;
+            }
+          }
   }
 
   return(

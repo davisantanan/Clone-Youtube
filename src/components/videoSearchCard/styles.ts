@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div `
   width: 90%;
   display: flex;
   column-gap: 10px;
@@ -12,7 +12,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Banner = styled.div`
+export const Banner = styled.div `
   width: 1000px;
   min-height: 280px;
   max-height: 280px;
@@ -35,7 +35,7 @@ export const Banner = styled.div`
   }
 `
 
-export const TitleContainer = styled.div`
+export const TitleContainer = styled.div `
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -47,7 +47,7 @@ export const TitleContainer = styled.div`
   }
 `;
 
-export const TextContainer = styled.div`
+export const TextContainer = styled.div `
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -57,7 +57,7 @@ export const TextContainer = styled.div`
   }
 `;
 
-export const ChannelContainer = styled.div`
+export const ChannelContainer = styled.div `
   display: flex;
   align-items: center;
   margin-top: 10px;
@@ -96,7 +96,7 @@ export const ChannelContainer = styled.div`
 
 `;
 
-export const Title = styled.span`
+export const Title = styled.span `
   width: 90%;
   font-weight: 500;
   color: #0f0f0f;
@@ -108,12 +108,26 @@ export const Title = styled.span`
   font-size: 16.5px;
 `;
 
-export const TextCard = styled.span`
+export const TextCard = styled.span `
   color: #8c8c8c;
   font-size: 12px;
+
+  @media(max-width: 768px) {
+    display: flex;
+  }
 `;
 
-export const DescriptionContainer = styled.div`
+export const TextCardResponsive = styled.span `
+  display: none;
+
+  @media(max-width: 768px) {
+    display: flex;
+    color: #8c8c8c;
+    font-size: 12px;
+  }
+`
+
+export const DescriptionContainer = styled.div `
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

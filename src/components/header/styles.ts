@@ -96,7 +96,7 @@ export const ButtonContainerResponsive = styled.div<typesHeader> `
     }
 `;
 
-export const ButtonIcon = styled.img `
+export const ButtonIcon = styled.img <typesHeader>`
     width: 20px;
 `;
 
@@ -104,6 +104,7 @@ export const SearchContainer = styled.div `
     display: flex;
     right: 35%;
     position: absolute;
+    align-items: center;
 
     @media(max-width: 1350px) {
         width: 35%;
