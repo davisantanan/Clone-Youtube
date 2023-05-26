@@ -1,14 +1,14 @@
 import { 
-    Banner, 
-    ChannelContainer, 
-    ChannelImage, 
-    Container, 
-    DescriptionContainer, 
-    TextCard, 
-    TextContainer, 
-    Title, 
-    TitleContainer 
-} from "./styles"
+  Banner, 
+  ChannelContainer, 
+  Container, 
+  DescriptionContainer, 
+  TextCard, 
+  TextContainer, 
+  Title, 
+  TitleContainer 
+} 
+from "./styles"
 
 interface Props {
   title: string
@@ -29,9 +29,7 @@ function VideoSearchCard(props : Props) {
           <TextCard>{props.details}</TextCard>
         </TextContainer>
         <ChannelContainer>
-          <ChannelImage>
-            {props.channelImage}
-          </ChannelImage>
+          <span>{props.channelImage}</span>
           <TextCard>{props.channelName}</TextCard>
         </ChannelContainer>
         <DescriptionContainer>

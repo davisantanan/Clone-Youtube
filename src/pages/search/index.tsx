@@ -41,7 +41,7 @@ function SearchPage(){
   
   const API_KEY = 'AIzaSyCMpWvUwocM23yBOpkz6VpWuY6y6E99sb8'
 
-  const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${search}&maxResults=48&&key=${API_KEY}`
+  const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${search}&maxResults=20&&key=${API_KEY}`
     
   async function load() {
     try {

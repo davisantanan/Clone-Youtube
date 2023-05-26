@@ -8,17 +8,22 @@ export const Container = styled.div<{ openMenu:boolean }>`
   max-width: 1600px;
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
-  padding: ${({openMenu}) => openMenu? '100px 50px 0 330px' : '100px 10px 0 100px'};
+  row-gap: 15px;
+  padding: ${({openMenu}) => openMenu? '100px 40px 0 420px' : '100px 10px 0 110px'};
   box-sizing: border-box;
 
-  @media(max-width: 834px) {
-    padding: 100px 10px 0 100px;
+  @media(max-width: 1300px) {
+    padding: 100px 20px 0 110px;
   }
+
+  @media(max-width: 768px){
+    padding: 100px 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   @media(max-width: 600px) {
-    row-gap: 30px;
-  }
-  @media(max-width: 414px) {
-    padding: 100px 10px 0 10px;
+    padding: 60px 20px 0;
   }
 `;
