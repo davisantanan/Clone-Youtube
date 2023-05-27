@@ -23,11 +23,11 @@ import MicIcon from '../../assets/aheader/microfone-gravador.png';
 import VideoIcon from '../../assets/aheader/video.png';
 import NotificationIcon from '../../assets/aheader/sino.png';
 import ButtonLeft from "../../assets/ahome/left.png";
+import DropDowMenu from "../dropDowMenu";
 import { useContext, useEffect, useState } from 'react';
 import { MenuContext } from "../../contexts/menuContext";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/userContext";
-import DropDowMenu from "../dropDowMenu";
 import { DropMenuContext } from "../../contexts/dropDownMenuContext";
 import { MouseEvent } from 'react';
 import { SearchContext } from "../../contexts/searchContext";
@@ -115,10 +115,16 @@ function Header(){
                 margin= '0 0 0 10px' 
                 onClick={ () => {
                     if(openSearchBar === false) {
-                        setOpenSearchBar(true) 
+                        setOpenSearchBar(true)
+                    } else {
+                        if(inputValue.trim() === '') {
+                            alert('Digite algo antes de tentar pesquisar')
+                            return;
+                        }
+                        setSearch(inputValue)
+                        navigate('/search')
                     }
-                    setSearch(inputValue)
-                    navigate('/search') 
+
                 }}>
                     <ButtonIcon alt="search" src={SearchIcon} />
                 </ButtonContainerResponsive>

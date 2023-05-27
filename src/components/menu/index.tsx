@@ -17,8 +17,6 @@ import {
     ButtonContainer,
     ButtonIconHeader
 } from "./styles";
-import { useContext, useEffect } from 'react';
-import { MenuContext } from "../../contexts/menuContext";
 import HomeIcon from '../../assets/amenu/botao-home.png';
 import ShortsIcon from '../../assets/amenu/short-icon.png';
 import SubscribeIcon from '../../assets/amenu/subscribe.png';
@@ -46,6 +44,8 @@ import HamburguerIcon from '../../assets/aheader/hamburger.png';
 import Logo from '../../assets/aheader/YouTube-Logo.png';
 import { useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from '../../contexts/userContext';
+import { useContext, useEffect } from 'react';
+import { MenuContext } from "../../contexts/menuContext";
 
 
 const home = [
