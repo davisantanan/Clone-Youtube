@@ -4,14 +4,14 @@
 
 
 ## 💻 Sobre o projeto
-Este projeto tem como objetivo estudo e incrementação do portfólio, trata-se de um clone do youtube consumindo a API do próprio youtube para sua página principal e suas categorias. Também possui um backend para a criação de conta e login, acesse através do link:  https://github.com/davisantanan/api-yt
+Este projeto tem como objetivo estudo e incrementação do portfólio, trata-se de um clone do youtube consumindo a API do próprio para sua página principal e suas categorias. Também possui um backend para a criação de conta e login, o repositório do backend pode ser acessado através do link:  https://github.com/davisantanan/api-yt
 
 ## ✨ Funcionalidades
 
 - [x] Cadastro de usuário
 - [x] Login de usuário
 - [x] Logout
-- [ ] Implementação de pesquisa
+- [x] Pesquisa de vídeos
 
 ## 🛠 Ferramentas
 
