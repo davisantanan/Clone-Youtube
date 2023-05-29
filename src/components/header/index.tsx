@@ -13,7 +13,8 @@ import {
     TextImgLogin,
     ProfileImage,
     ButtonContainerResponsive,
-    ButtonContainerLogo
+    ButtonContainerLogo,
+    ButtonBackBar
 } from "./styles";
 import AvatarIcon from '../../assets/amenu/avatar.png';
 import HamburguerIcon from '../../assets/aheader/hamburger.png';
@@ -66,7 +67,7 @@ function Header(){
             </LogoContainer>
             
             <SearchContainer>
-                <ButtonIcon 
+                <ButtonBackBar 
                 openSearchBar={openSearchBar} 
                 alt="back" 
                 src={ButtonLeft} 

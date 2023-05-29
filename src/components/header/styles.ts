@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-interface typesHeader{
+interface typesHeader {
     openSearchBar?: boolean;
     margin?: string;
     login?: boolean;
@@ -96,9 +96,20 @@ export const ButtonContainerResponsive = styled.div<typesHeader> `
     }
 `;
 
-export const ButtonIcon = styled.img <typesHeader>`
+export const ButtonIcon = styled.img `
     width: 20px;
 `;
+
+export const ButtonBackBar = styled.img <typesHeader>`
+    display: none;
+    width: 20px;
+
+    @media(max-width: 768px) {
+        display: ${({ openSearchBar }) => openSearchBar ? 'flex' : 'none'};
+        opacity: 0.4;
+        margin-right: 10px;
+    }
+`
 
 export const SearchContainer = styled.div `
     display: flex;
