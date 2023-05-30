@@ -8,6 +8,7 @@ Este projeto tem como objetivo estudo e incrementação do portfólio, trata-se 
 
 ## ✨ Funcionalidades
 
+- [x] Dinamismo de vídeos na homepage
 - [x] Cadastro de usuário
 - [x] Login de usuário
 - [x] Logout
