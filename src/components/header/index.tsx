@@ -60,15 +60,14 @@ function Header(){
     function handleInput(inputValue: string){
         setInputValue(inputValue);
         if(inputValue === '') {
-            setClearButton(false)
-        } else {
-            setClearButton(true)
-        }
+            setClearButton(false);
+        } 
+        setClearButton(true);
     }
 
     function clearInput(){
-        setClearButton(false)
-        setInputValue('')
+        setClearButton(false);
+        setInputValue('');
     }
 
     return(
