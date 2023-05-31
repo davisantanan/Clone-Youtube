@@ -4,6 +4,7 @@ interface typesHeader {
     openSearchBar?: boolean;
     margin?: string;
     login?: boolean;
+    clearButton?: boolean;
 }
 
 export const Container = styled.header `
@@ -166,6 +167,24 @@ export const SearchButton = styled.div `
     @media(max-width: 768px) {
         display: none;
     };
+`;
+
+export const ClearButtonContainer = styled.div<typesHeader>`
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: ${({ clearButton }) => clearButton ? 'flex' : 'none'};
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+    :hover{
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+`;
+
+export const ClearButtonImg = styled.img `
+    width: 15px;
 `;
 
 export const HeaderButtons = styled.div<typesHeader>`
