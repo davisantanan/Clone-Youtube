@@ -11,7 +11,6 @@ import { SearchStore } from "./contexts/searchContext";
 
 
 function App() {
-
   return (
     <BrowserRouter>
       <UserStorage>
@@ -19,15 +18,13 @@ function App() {
           <MenuStore>
             <DropMenuStore>
               <SearchStore>
-                <div className="App">
-                  <div className="hero-container"> 
-                    <Routes>
-                      <Route path="/" element={<Home />} />
-                      <Route path="/login" element={<Login />} />
-                      <Route path="/sign-up" element={<CreateAccount />} />
-                      <Route path="/search" element={<SearchPage />} />
-                    </Routes>
-                  </div>
+                <div className="hero-container"> 
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/sign-up" element={<CreateAccount />} />
+                    <Route path="/search" element={<SearchPage />} />
+                  </Routes>
                 </div>
               </SearchStore>
             </DropMenuStore>

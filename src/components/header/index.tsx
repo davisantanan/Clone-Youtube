@@ -61,8 +61,9 @@ function Header(){
         setInputValue(inputValue);
         if(inputValue === '') {
             setClearButton(false);
-        } 
-        setClearButton(true);
+        } else {
+            setClearButton(true);
+        }
     }
 
     function clearInput(){
@@ -143,7 +144,6 @@ function Header(){
                         setSearch(inputValue)
                         navigate('/search')
                     }
-
                 }}>
                     <ButtonIcon alt="search" src={SearchIcon} />
                 </ButtonContainerResponsive>
