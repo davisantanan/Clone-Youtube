@@ -8,6 +8,7 @@ import { ContextStore } from "./contexts/categoryContext";
 import CreateAccount from "./pages/createAccount";
 import SearchPage from "./pages/search";
 import { SearchStore } from "./contexts/searchContext";
+import UserVideos from "./pages/userVideos";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/sign-up" element={<CreateAccount />} />
                     <Route path="/search" element={<SearchPage />} />
+                    <Route path="/user-videos" element={<UserVideos />} />
                   </Routes>
                 </div>
               </SearchStore>

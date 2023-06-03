@@ -77,7 +77,7 @@ export const MenuItem = styled.div `
     cursor: pointer;
     display: flex;
     align-items: center;
-    padding: 2px 15px;
+    padding: 10px 15px;
 
     span {
         font-weight: 400;
