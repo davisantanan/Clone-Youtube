@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/home";
-import Login from "./pages/login";
 import { MenuStore } from "./contexts/menuContext";
 import { DropMenuStore } from "./contexts/dropDownMenuContext";
 import { UserStorage } from './contexts/userContext';
 import { ContextStore } from "./contexts/categoryContext";
-import CreateAccount from "./pages/createAccount";
-import SearchPage from "./pages/search";
 import { SearchStore } from "./contexts/searchContext";
+import CreateAccount from "./pages/createAccount";
+import Home from "./pages/home";
+import Login from "./pages/login";
+import SearchPage from "./pages/search";
 import UserVideos from "./pages/userVideos";
 
 
