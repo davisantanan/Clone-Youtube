@@ -94,8 +94,8 @@ function Shorts(){
                 <TextTitle>Shorts</TextTitle>
             </TitleContainer>
             <Container openShorts={openShorts}>
-                {shortsVideos.map((short) => (
-                        <ContentContainer>
+                {shortsVideos.map((short, index) => (
+                        <ContentContainer key={index}>
                             <ImgContent src={short.image}/>
                             <TitleContent>
                                 <Title>{short.title}</Title>

@@ -13,7 +13,7 @@ interface props {
     thumbnail: string,
     title: string,
     channelImage: string,
-    details: string
+    description: string
 };
 
 function YourVideosCard(video: props){
@@ -26,7 +26,7 @@ function YourVideosCard(video: props){
                 </ChannelImage>
                 <TextContainer>
                     <Title>{video.title}</Title>
-                    <TextCard>{video.details}</TextCard>
+                    <TextCard>{video.description}</TextCard>
                 </TextContainer>
             </TitleContainer>
         </Container>

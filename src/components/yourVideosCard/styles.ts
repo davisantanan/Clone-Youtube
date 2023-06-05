@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div `
-    width: 100%;
+    width: 280px;
     cursor: pointer;
 `;
 
 export const ImageBanner = styled.img `
     width: 100%;
-    height: 210px;
+    height: 200px;
     border-radius: 12px;
     margin-bottom: 5px;
 `;
@@ -36,14 +36,31 @@ export const ChannelImage = styled.div `
 export const TextContainer = styled.div `
     display: flex;
     flex-direction: column;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 `;
 
 export const Title = styled.span `
     font-weight: 600;
     color: #0f0f0f;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
 `;
 
 export const TextCard = styled.span `
     color: #8c8c8c;
     font-size: 14px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
 `;

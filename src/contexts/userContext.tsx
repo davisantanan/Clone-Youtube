@@ -62,6 +62,7 @@ export const UserStorage = ({ children }: propsContextUser) => {
                 getUser(token);
                 console.log(data)
             } catch(error) {
+            alert('Não foi possível criar o vídeo');
             console.log('Não foi possível criar o vídeo', error);
         }
     }

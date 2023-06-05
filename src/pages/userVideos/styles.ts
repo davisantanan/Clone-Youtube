@@ -8,17 +8,19 @@ export const MainContainer = styled.div<{ openMenu:boolean }> `
     min-width: 100%;
     max-width: 1600px;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: ${({openMenu}) => openMenu? '100px 100px 0 400px' : '100px 100px 0 160px'};
+    flex-wrap: wrap;
+    column-gap: 50px;
+    row-gap: 50px;
+    padding: ${({openMenu}) => openMenu? '100px 20px 20px 400px' : '100px 20px 20px 160px'};
     box-sizing: border-box;
+    justify-content: center;
 
     @media(max-width: 768px) {
-        padding: 50px 70px;
+        padding: 70px 20px 20px 20px;
     }
     
     @media(max-width: 600px) {
-        padding: 50px 40px;
+        padding: 70px 20px 20px 20px;
     }
 `;
 
@@ -27,10 +29,46 @@ export const UserContainer = styled.div `
     flex-direction: column;
     width: 100%;
     gap: 20px;
+    align-items: center;
+    margin-bottom: 30px;
 `;
 
 export const UserName = styled.h1 `
     margin: 0;
+    
+    @media(max-width: 768px) {
+        font-size: 25px
+    }
+`;
+
+export const ChannelImage = styled.div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #065fd4db;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+ 
+    span {
+        height: 200px;
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 60px;
+    }
+
+    @media(max-width: 768px) {
+        width: 100px;
+        height: 100px;
+
+        span {
+            width: 100px;
+            height: 200px;
+            font-size: 30px;
+        }
+    }
 `;
 
 export const OpenModalButton = styled.button `
@@ -68,10 +106,15 @@ export const ModalContainer = styled.div<{ showModal:boolean }> `
 
 export const ModalContent = styled.div `
     width: 45%;
-    height: 60%;
+    min-height: 60%;
     background-color: #fff;
     border-radius: 12px;
     padding: 15px 20px;
+
+    @media(max-width: 768px) {
+        min-height: 40%;
+        width: 70%;
+    }
    
 `;
 
@@ -93,6 +136,15 @@ export const ModalTitle = styled.h1 `
     justify-content: center;
     font-size: 40px;
     margin: 0 0 100px 0;
+
+    @media(max-width: 768px) {
+        font-size: 30px;
+        margin: 0 0 20px 0;
+    }
+
+    @media(max-width: 420px) {
+        font-size: 25px;
+    }
 `;
 
 export const VideoTitleInput = styled.input`
@@ -161,13 +213,14 @@ export const ModalButton = styled.button `
     }
 `;
 
-export const VideosContent = styled.div `
-    min-width: 100%;
-    max-width: 1600px;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 50px;
-    row-gap: 50px;
-    flex-wrap: wrap;
-    margin-top: 50px;
+export const NoVideoTitleContainer = styled.div `
+    width: 100%;
+    display: flex;
+    justify-content: center;
 `;
+
+export const NoVideoTitle = styled.h1 `
+    @media(max-width: 600px) {
+        font-size: 25px
+    }
+`

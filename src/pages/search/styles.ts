@@ -9,7 +9,7 @@ export const Container = styled.div<{ openMenu:boolean }>`
   display: flex;
   flex-direction: column;
   row-gap: 15px;
-  padding: ${({openMenu}) => openMenu? '100px 40px 0 420px' : '100px 10px 0 110px'};
+  padding: ${({openMenu}) => openMenu? '100px 40px 20px 420px' : '100px 10px 20px 110px'};
   box-sizing: border-box;
 
   @media(max-width: 1300px) {

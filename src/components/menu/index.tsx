@@ -128,15 +128,15 @@ function Menu(){
                     </ButtonContainer>
                     <img alt="logo" src={Logo} onClick={() => navigate('/')} />
                 </MenuHeader>
-                {home.map((item) => (
-                    <MenuItem openMenu={openMenu} onClick={() => navigate(item.link)} >
+                {home.map((item, index) => (
+                    <MenuItem key={index} openMenu={openMenu} onClick={() => navigate(item.link)} >
                         {item.button}
                         <span>{item.name}</span>
                     </MenuItem>
                 ))}
                 <Divider openMenu={openMenu}/>
-                {libray.map((item) => (
-                    <MenuItem openMenu={openMenu}>
+                {libray.map((item, index) => (
+                    <MenuItem key={index} openMenu={openMenu}>
                         {item.button}
                         <span>{item.name}</span>
                     </MenuItem>
@@ -154,8 +154,8 @@ function Menu(){
                     </LoginContainer>
                     <DividerLogin login={login}/>
                     <TitleSession>Explorar</TitleSession>
-                    {explore.map((item) => (
-                        <MenuItem openMenu={openMenu}>
+                    {explore.map((item, index) => (
+                        <MenuItem key={index} openMenu={openMenu}>
                             {item.button}
                             <span>{item.name}</span>
                         </MenuItem>
@@ -167,15 +167,15 @@ function Menu(){
                     </MenuItem>
                     <Divider openMenu={openMenu}/>
                     <TitleSession>Mais do Youtube</TitleSession>
-                    {youtube.map((item) => (
-                        <MenuItem openMenu={openMenu}>
+                    {youtube.map((item, index) => (
+                        <MenuItem key={index} openMenu={openMenu}>
                             {item.button}
                             <span>{item.name}</span>
                         </MenuItem>
                     ))}  
                     <Divider openMenu={openMenu}/>
-                    {settings.map((item) => (
-                        <MenuItem openMenu={openMenu}>
+                    {settings.map((item, index) => (
+                        <MenuItem key={index} openMenu={openMenu}>
                             {item.button}
                             <span>{item.name}</span>
                         </MenuItem>

@@ -14,7 +14,9 @@ import {
     VideoThumbnailInput,
     ModalButtonContainer,
     ModalButton,
-    VideosContent
+    ChannelImage,
+    NoVideoTitleContainer,
+    NoVideoTitle,
 } from "./styles";
 import Header from "../../components/header";
 import Menu from "../../components/menu";
@@ -62,6 +64,9 @@ function UserVideos(){
                     <UserName>
                         {user && user.name ? user.name : ''}
                     </UserName>
+                    <ChannelImage>
+                        <span>{user && user.name ? user.name.charAt(0).toUpperCase() : ''}</span>
+                    </ChannelImage>
                     <OpenModalButton onClick={() => setShowModal(true)}>
                         Cadastrar vídeo
                     </OpenModalButton>
@@ -79,7 +84,7 @@ function UserVideos(){
                         <VideoTitleInput
                         type="text"
                         placeholder="Título do vídeo"
-                        maxLength={50}
+                        maxLength={200}
                         value={videoTitle}
                         onChange={(e) => setVideoTitle(e.target.value)}
                         />
@@ -105,21 +110,21 @@ function UserVideos(){
                         </ModalButtonContainer>
                     </ModalContent>
                 </ModalContainer>
-                <VideosContent>
-                    {Array.isArray(userVideos) ? (
-                        userVideos.map((video: propsVideos) => (
+                    {Array.isArray(userVideos) && userVideos.length > 0 ? (
+                        userVideos.map((video: propsVideos) => 
                             <YourVideosCard
                             title={video.title}
                             thumbnail={video.thumbnail}
                             channelImage={user && user.name ? user.name.charAt(0).toUpperCase() : ''}
-                            details={video.description}
+                            description={video.description}
                             key={video.video_id}
                             />
-                        )))
+                        ))
                         :
-                        <h1>Esse canal não possui vídeos</h1>
+                        <NoVideoTitleContainer>
+                            <NoVideoTitle>Esse canal não possui vídeos</NoVideoTitle>
+                        </NoVideoTitleContainer>
                     }
-                </VideosContent>
             </MainContainer>
         </UserVideosContainer>
     )
