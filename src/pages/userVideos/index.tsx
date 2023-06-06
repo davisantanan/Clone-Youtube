@@ -17,14 +17,17 @@ import {
     ChannelImage,
     NoVideoTitleContainer,
     NoVideoTitle,
+    InvalidMessageContainer,
+    InvalidMessage,
+    ClearButton
 } from "./styles";
 import Header from "../../components/header";
 import Menu from "../../components/menu";
+import YourVideosCard from "../../components/yourVideosCard";
 import Close from "../../assets/auservideos/close.png"
 import { MenuContext } from "../../contexts/menuContext";
-import { useContext, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { UserContext } from "../../contexts/userContext";
-import YourVideosCard from "../../components/yourVideosCard";
 
 
 function UserVideos(){
@@ -34,6 +37,12 @@ function UserVideos(){
     const [ videoTitle, setVideoTitle ] = useState('');
     const [ videoDescription, setVideoDescription ] = useState('');
     const [ videoThumbnail, setVideoThumbnail ] = useState('');
+    const [ videoTitleValid, setVideoTitleValid ] = useState(true);
+    const [ videoDescriptionValid, setVideoDescriptionValid ] = useState(true);
+    const [ videoThumbnailValid, setVideoThumbnailValid ] = useState(true);
+    const videoTitleRef= useRef<HTMLInputElement>(null);
+    const videoDescriptionRef= useRef<HTMLInputElement>(null);
+    const videoThumbnailRef= useRef<HTMLInputElement>(null);
     const userId = user.id!;
 
     interface propsVideos {
@@ -50,10 +59,51 @@ function UserVideos(){
     };
 
     function sendVideo(){
-        createVideos(token, userId, videoTitle, videoDescription, videoThumbnail);
+        if(videoTitle.trim() !== ''){
+            setVideoTitleValid(true)
+        }
+        if(videoDescription.trim() !== ''){
+            setVideoDescriptionValid(true)
+        }
+        if(videoThumbnail.trim() !== ''){
+            setVideoThumbnailValid(true)
+        }
+        if(videoTitle.trim() === '' && videoDescription.trim() === '' && videoThumbnail.trim() === ''){
+            setVideoTitleValid(false)
+            setVideoDescriptionValid(false)
+            setVideoThumbnailValid(false)
+            if(videoTitleRef.current){
+                videoTitleRef.current.focus()
+            }
+        } else if(videoTitle.trim() === ''){
+            setVideoTitleValid(false)
+            if(videoTitleRef.current){
+                videoTitleRef.current.focus()
+            }
+        } else if(videoDescription.trim() === ''){
+            setVideoDescriptionValid(false)
+            if(videoDescriptionRef.current){
+                videoDescriptionRef.current.focus()
+            }
+        } else if(videoThumbnail.trim() === ''){
+            setVideoThumbnailValid(false)
+            if(videoThumbnailRef.current){
+                videoThumbnailRef.current.focus()
+            }
+        } else {
+            createVideos(token, userId, videoTitle, videoDescription, videoThumbnail);
+            setShowModal(false);
+            clearInput();
+        }
+    };
+
+    function closeModal(){
         setShowModal(false);
         clearInput();
-    };
+        setVideoTitleValid(true);
+        setVideoDescriptionValid(true);
+        setVideoThumbnailValid(true);
+    }
 
     return(
         <UserVideosContainer>
@@ -77,7 +127,7 @@ function UserVideos(){
                             <CloseModalButton 
                             alt="close" 
                             src={Close}
-                            onClick={() => setShowModal(false)}
+                            onClick={closeModal}
                             />
                         </CloseModalButtonContainer>
                         <ModalTitle>Enviar novo vídeo</ModalTitle>
@@ -87,26 +137,47 @@ function UserVideos(){
                         maxLength={200}
                         value={videoTitle}
                         onChange={(e) => setVideoTitle(e.target.value)}
+                        ref={videoTitleRef}
+                        valid={videoTitleValid}
                         />
+                        <InvalidMessageContainer>
+                            <InvalidMessage valid={videoTitleValid}>
+                                Digite o título do vídeo
+                            </InvalidMessage>
+                        </InvalidMessageContainer>
                         <VideoDescriptionInput
                         type="text"
                         placeholder="Descrição do vídeo"
                         maxLength={200}
                         value={videoDescription}
                         onChange={(e) => setVideoDescription(e.target.value)}
+                        ref={videoDescriptionRef}
+                        valid={videoDescriptionValid}
                         />
+                        <InvalidMessageContainer>
+                            <InvalidMessage valid={videoDescriptionValid}>
+                                Digite a descrição do vídeo
+                            </InvalidMessage>
+                        </InvalidMessageContainer>
                         <VideoThumbnailInput
                         type="text"
                         placeholder="URL da thumbnail"
-                        maxLength={200}
+                        maxLength={300}
                         value={videoThumbnail}
                         onChange={(e) => setVideoThumbnail(e.target.value)}
+                        ref={videoThumbnailRef}
+                        valid={videoThumbnailValid}
                         />
+                        <InvalidMessageContainer>
+                            <InvalidMessage valid={videoThumbnailValid}>
+                                Digite a thumbnail do vídeo
+                            </InvalidMessage>
+                        </InvalidMessageContainer>
                         <ModalButtonContainer>
                             <ModalButton onClick={sendVideo}>Adicionar vídeo</ModalButton>
                         </ModalButtonContainer>
                         <ModalButtonContainer>
-                            <ModalButton onClick={clearInput}>Limpar Campos</ModalButton>
+                            <ClearButton onClick={clearInput}>Limpar Campos</ClearButton>
                         </ModalButtonContainer>
                     </ModalContent>
                 </ModalContainer>

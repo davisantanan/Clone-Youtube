@@ -18,7 +18,7 @@ interface typeContextUser {
     user: user,
     token: string,
     userVideos: {},
-    handleLogin: (email: string, password: string) => Promise<void>,
+    handleLogin: (email: string, password: string) => void,
     logOut: () => void,
     createUser: (name:string, email:string, password:string) => void,
     createVideos: (token: string, user_id: string, title: string, description: string, thumbnail: string) => void
@@ -100,6 +100,7 @@ export const UserStorage = ({ children }: propsContextUser) => {
             email: '',
             password: ''
         });
+        navigate('/');
     };
 
     const handleLogin = async (email: string, password: string) => {

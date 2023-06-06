@@ -64,12 +64,12 @@ function Header(){
         } else {
             setClearButton(true);
         }
-    }
+    };
 
     function clearInput(){
         setClearButton(false);
         setInputValue('');
-    }
+    };
 
     return(
         <Container>

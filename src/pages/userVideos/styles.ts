@@ -115,7 +115,6 @@ export const ModalContent = styled.div `
         min-height: 40%;
         width: 70%;
     }
-   
 `;
 
 export const CloseModalButtonContainer = styled.div`
@@ -135,7 +134,7 @@ export const ModalTitle = styled.h1 `
     display: flex;
     justify-content: center;
     font-size: 40px;
-    margin: 0 0 100px 0;
+    margin: 0 0 70px 0;
 
     @media(max-width: 768px) {
         font-size: 30px;
@@ -147,45 +146,50 @@ export const ModalTitle = styled.h1 `
     }
 `;
 
-export const VideoTitleInput = styled.input`
+export const VideoTitleInput = styled.input<{ valid:boolean }> `
     width: 95%;
     padding: 15px 10px;
     border-radius: 8px;
     outline: none;
-    border: 1px solid #d3d3d3;
+    border: ${({ valid }) => valid ? '1px solid #d3d3d3' : '1px solid red'};
     font-size: 13px;
-    margin-bottom: 20px;
+    box-sizing: border-box;
 
     :focus {
-        border: 2px solid #1a75ff;
+        border: ${({ valid }) => valid ? '2px solid #1a75ff' : '2px solid red'};
+        outline: none;
     }
 `;
 
-export const VideoDescriptionInput = styled.input`
+export const VideoDescriptionInput = styled.input<{ valid:boolean }>`
     width: 95%;
     padding: 15px 10px;
     border-radius: 8px;
     outline: none;
-    border: 1px solid #d3d3d3;
+    border: ${({ valid }) => valid ? '1px solid #d3d3d3' : '1px solid red'};
     font-size: 13px;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    box-sizing: border-box;
 
     :focus {
-        border: 2px solid #1a75ff;
+        border: ${({ valid }) => valid ? '2px solid #1a75ff' : '2px solid red'};
+        outline: none;
     }
 `;
 
-export const VideoThumbnailInput = styled.input`
+export const VideoThumbnailInput = styled.input<{ valid:boolean }>`
     width: 95%;
     padding: 15px 10px;
     border-radius: 8px;
     outline: none;
-    border: 1px solid #d3d3d3;
+    border: ${({ valid }) => valid ? '1px solid #d3d3d3' : '1px solid red'};
     font-size: 13px;
-    margin-bottom: 25px;
+    margin-top: 20px;
+    box-sizing: border-box;
 
     :focus {
-        border: 2px solid #1a75ff;
+        border: ${({ valid }) => valid ? '2px solid #1a75ff' : '2px solid red'};
+        outline: none;
     }
 `;
 
@@ -193,7 +197,6 @@ export const ModalButtonContainer = styled.div `
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 15px;
 `
 
 export const ModalButton = styled.button `
@@ -207,6 +210,25 @@ export const ModalButton = styled.button `
     font-weight: 600;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 30px;
+
+    :hover {
+        background-color: #005ce6;
+    }
+`;
+
+export const ClearButton = styled.button `
+    width: 90%;
+    height: 45px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background-color: #1a75ff;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
 
     :hover {
         background-color: #005ce6;
@@ -223,4 +245,15 @@ export const NoVideoTitle = styled.h1 `
     @media(max-width: 600px) {
         font-size: 25px
     }
-`
+`;
+
+export const InvalidMessageContainer = styled.div `
+    width: 100%;
+`;
+
+export const InvalidMessage = styled.span<{ valid:boolean }> `
+    display: ${({ valid }) => valid ? 'none' : 'block'};
+    font-size: 14px;
+    color: red;
+`;
+
