@@ -11,6 +11,7 @@ Este projeto tem como objetivo estudo e incrementação do portfólio, trata-se 
 - [x] Dinamismo de vídeos na homepage
 - [x] Cadastro de usuário
 - [x] Login de usuário
+- [x] Criação de vídeo para o usuário logado
 - [x] Logout
 - [x] Pesquisa de vídeos
 
