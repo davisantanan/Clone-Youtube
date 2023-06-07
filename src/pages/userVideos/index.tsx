@@ -57,8 +57,8 @@ function UserVideos(){
         setVideoThumbnail('');
         setVideoDescription('');
         if(videoTitleRef.current){
-                videoTitleRef.current.focus()
-            }
+            videoTitleRef.current.focus()
+        }
     };
 
     function sendVideo(){
