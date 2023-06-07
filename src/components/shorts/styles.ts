@@ -81,6 +81,11 @@ export const TitleContent = styled.div `
     width: 100%;
     display: flex;
     flex-direction: column;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 `;
 
 export const Title = styled.span `
@@ -89,6 +94,11 @@ export const Title = styled.span `
     color: #0f0f0f;
     margin: 5px 0 5px 0;
     font-size: 16px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 
     @media (max-width: 600px) {
         font-size: 14px;
@@ -98,6 +108,11 @@ export const Title = styled.span `
 export const TextCard = styled.span `
     color: #8c8c8c;
     font-size: 14px;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 
     @media (max-width: 600px) {
         font-size: 13px;

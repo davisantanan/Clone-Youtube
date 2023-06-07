@@ -13,8 +13,6 @@ import { useRef, useState, useEffect, useContext } from 'react';
 import { CategoryContext } from '../../contexts/categoryContext';
 
 
-
-
 const navBar = [ 
     {name: 'Tudo', id: '0'},
     {name: 'Política', id: '25'},

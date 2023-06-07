@@ -56,6 +56,9 @@ function UserVideos(){
         setVideoTitle('');
         setVideoThumbnail('');
         setVideoDescription('');
+        if(videoTitleRef.current){
+                videoTitleRef.current.focus()
+            }
     };
 
     function sendVideo(){
@@ -90,7 +93,7 @@ function UserVideos(){
             if(videoThumbnailRef.current){
                 videoThumbnailRef.current.focus()
             }
-        } else {
+        } else{
             createVideos(token, userId, videoTitle, videoDescription, videoThumbnail);
             setShowModal(false);
             clearInput();
@@ -181,7 +184,7 @@ function UserVideos(){
                         </ModalButtonContainer>
                     </ModalContent>
                 </ModalContainer>
-                    {Array.isArray(userVideos) && userVideos.length > 0 ? (
+                    {Array.isArray(userVideos) && userVideos.length > 0 ? 
                         userVideos.map((video: propsVideos) => 
                             <YourVideosCard
                             title={video.title}
@@ -190,7 +193,7 @@ function UserVideos(){
                             description={video.description}
                             key={video.video_id}
                             />
-                        ))
+                        )
                         :
                         <NoVideoTitleContainer>
                             <NoVideoTitle>Esse canal não possui vídeos</NoVideoTitle>
