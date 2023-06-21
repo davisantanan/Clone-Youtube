@@ -11,7 +11,7 @@ interface typeContextCategory {
 
 export const CategoryContext = createContext({} as typeContextCategory);
 
-export const ContextStore = ({children}: propsContextCategory) => {
+export const CategoryStore = ({children}: propsContextCategory) => {
 
     const [categoryId, setCategoryId] = useState('0');
         

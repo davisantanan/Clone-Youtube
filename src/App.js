@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { MenuStore } from "./contexts/menuContext";
 import { DropMenuStore } from "./contexts/dropDownMenuContext";
 import { UserStorage } from './contexts/userContext';
-import { ContextStore } from "./contexts/categoryContext";
+import { CategoryStore } from "./contexts/categoryContext";
 import { SearchStore } from "./contexts/searchContext";
 import CreateAccount from "./pages/createAccount";
 import Home from "./pages/home";
@@ -15,7 +15,7 @@ function App() {
   return (
     <BrowserRouter>
       <UserStorage>
-        <ContextStore>
+        <CategoryStore>
           <MenuStore>
             <DropMenuStore>
               <SearchStore>
@@ -31,7 +31,7 @@ function App() {
               </SearchStore>
             </DropMenuStore>
           </MenuStore>
-        </ContextStore>
+        </CategoryStore>
       </UserStorage>
     </BrowserRouter>
   )

@@ -131,7 +131,7 @@ function UserVideos(){
                             alt="close" 
                             src={Close}
                             onClick={closeModal}
-                            />
+                        />
                         </CloseModalButtonContainer>
                         <ModalTitle>Enviar novo vídeo</ModalTitle>
                         <VideoTitleInput
@@ -192,7 +192,7 @@ function UserVideos(){
                             channelImage={user && user.name ? user.name.charAt(0).toUpperCase() : ''}
                             description={video.description}
                             key={video.video_id}
-                            />
+                        />
                         )
                         :
                         <NoVideoTitleContainer>
